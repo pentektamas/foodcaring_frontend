@@ -1,0 +1,6 @@
+export enum Role {
+  DISADVANTAGED_PERSON,
+  DONOR,
+  ADMIN,
+  RESTAURANT_RESPONSIBLE
+}

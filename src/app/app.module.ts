@@ -11,6 +11,15 @@ import { LoginPageComponent } from './components/account-components/login-page/l
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import {RouterModule} from '@angular/router';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -26,6 +35,15 @@ import {RouterModule} from '@angular/router';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatTabsModule,
+    MatMenuModule,
+    MatIconModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
