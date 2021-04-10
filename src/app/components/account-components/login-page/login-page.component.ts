@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { UserCredentials } from 'src/app/models/user-credentials.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login-page',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-
-  constructor() { }
+  public loginForm: FormGroup;
+  constructor(public userServive:UserService) { 
+    this.loginForm = new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl('')
+    });
+  }
 
   ngOnInit(): void {
   }
 
+  public loginUser(loginFormValue:any) {
+     this.userServive.login({"username":loginFormValue.username,"password":loginFormValue.password}) 
+  }
+  
 }

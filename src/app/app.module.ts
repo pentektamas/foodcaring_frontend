@@ -20,7 +20,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
-
+import { UserService } from './services/user.service';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,6 @@ import {MatIconModule} from '@angular/material/icon';
     MainPageComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -44,9 +44,11 @@ import {MatIconModule} from '@angular/material/icon';
     MatTabsModule,
     MatMenuModule,
     MatIconModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
+ 
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
