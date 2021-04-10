@@ -20,6 +20,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { CreateMenuComponent } from './components/menu/create-menu/create-menu.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,7 +33,8 @@ import {MatIconModule} from '@angular/material/icon';
     GeneralLayoutComponent,
     LoginPageComponent,
     ErrorPageComponent,
-    MainPageComponent
+    MainPageComponent,
+    CreateMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,11 @@ import {MatIconModule} from '@angular/material/icon';
     MatTabsModule,
     MatMenuModule,
     MatIconModule,
-    RouterModule.forRoot(routes)
+    MatDialogModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
