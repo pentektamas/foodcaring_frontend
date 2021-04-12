@@ -22,6 +22,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { UserService } from './services/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+import {MatSelectModule} from '@angular/material/select';
+import { RepositoryService } from './services/repository.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     GeneralLayoutComponent,
     LoginPageComponent,
     ErrorPageComponent,
-    MainPageComponent
+    MainPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     AppRoutingModule,
@@ -44,11 +48,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTabsModule,
     MatMenuModule,
     MatIconModule,
+    MatSelectModule,
     ReactiveFormsModule,
+
     RouterModule.forRoot(routes)
  
   ],
-  providers: [UserService],
+  providers: [UserService,
+  RepositoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

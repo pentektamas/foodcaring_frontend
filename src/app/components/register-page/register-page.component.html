@@ -1,0 +1,87 @@
+<div fxLayoutAlign="center center" class="dimension">
+ <mat-toolbar color="primary">
+    <span >Registration</span>
+  </mat-toolbar>
+
+<mat-card-content>
+    <form  class="form align" [formGroup]="registerForm"   (ngSubmit)="registerUser(registerForm.value)">
+      <mat-card class="my-card" >
+
+        <mat-form-field class="full-width"> 
+              <mat-label>First Name</mat-label>
+              <input  matInput  placeholder="First name"  formControlName="firstName" required>
+        </mat-form-field>
+        <div *ngIf="firstName!=null">
+            <small *ngIf="firstName.invalid && firstName.touched" class="text-danger">First name must contain at least 3 characters</small> 
+       </div>
+
+        <div class="row">
+            <mat-form-field class="full-width"> 
+                 <mat-label>Last Name</mat-label>
+                 <input  matInput  placeholder="Last name"  formControlName="lastName" required>
+           </mat-form-field>
+        </div>
+        <div *ngIf="lastName!=null">
+            <small *ngIf="lastName.invalid && lastName.touched" class="text-danger">Last name must contain at least 3 characters</small> 
+        </div>
+        <div class="row">
+                <mat-form-field class="full-width"> 
+                     <mat-label>Location</mat-label>
+                     <input  matInput  placeholder="Location"  formControlName="location" required>
+               </mat-form-field>
+        </div>
+        <div *ngIf="location!=null">
+                <small *ngIf="location.invalid && location.touched" class="text-danger">Location must contain at least 3 characters</small> 
+        </div>
+
+            <div class="row">
+                    <mat-form-field class="full-width"> 
+                         <mat-label>Phone number</mat-label>
+                         <input  matInput  type="text" placeholder="Phone number"  formControlName="phoneNumber" required>
+                   </mat-form-field>
+            </div>
+            <div *ngIf="phoneNumber!=null">
+                <small *ngIf="phoneNumber.invalid && phoneNumber.touched" class="text-danger">Phone number must contain at least 10 characters</small> 
+            </div>
+
+            <div class="row">
+                    <mat-form-field class="full-width" > 
+                         <mat-label>Rol</mat-label>
+                         <mat-select formControlName="role" required>
+                            <mat-option value="Doner">Doner</mat-option>
+                            <mat-option value="Disadvantaged person">Disadvantaged person</mat-option>
+                          </mat-select>
+                   </mat-form-field>
+            </div>
+    
+            
+            <div class="row">
+               <mat-form-field class="full-width"> 
+                    <mat-label>Username</mat-label>
+                    <input  matInput  type="text" placeholder="username"  formControlName="username" required>
+              </mat-form-field>
+       </div>
+       <div *ngIf="username!=null">
+           <small *ngIf="username.invalid && username.touched" class="text-danger">Username must contain at least 10 characters</small> 
+       </div>
+
+       
+       <div class="row">
+          <mat-form-field class="full-width"> 
+               <mat-label>Password</mat-label>
+               <input  matInput  type="password" placeholder="password"  formControlName="password" required>
+         </mat-form-field>
+  </div>
+  <div *ngIf="password!=null">
+      <small *ngIf="password.invalid && password.touched" class="text-danger">Password  must contain at least 8 characters</small> 
+  </div>
+
+           <div class="row">
+                 <mat-card-actions  class="align">
+                      <button  [disabled]="registerForm.invalid" mat-raised-button type="submit" color="primary">Register</button>
+                 </mat-card-actions> 
+            </div>
+       </mat-card>
+    </form> 
+  </mat-card-content> 
+</div>
