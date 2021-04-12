@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Role } from 'src/app/models/enums/role.enum';
 import { User } from 'src/app/models/user.model';
 import { RepositoryService } from 'src/app/services/repository.service';
 import Swal from 'sweetalert2';
@@ -49,18 +50,37 @@ export class RegisterPageComponent implements OnInit {
   }
 
   public registerUser(value:User){
+    let userRole;
+
+    if(value.role==="Disadvantaged person"){
+      userRole=Role[0];
+    }
+    if(value.role==="Donor")
+       userRole=Role[1];
+    if(value.role==="Admin"){
+      userRole=Role[2];
+    }
+    if(value.role==="Restaurant responsible"){
+      userRole=Role[3];
+    }
      let user:User ={
       firstName:value.firstName,
       lastName:value.lastName,
       location:value.location,
       phoneNumber:value.phoneNumber,
-      role:value.role,
+      role:userRole,
       username:value.username,
       password:value.password
     }
-
-/*     this.repositotyService.create("register",user).subscribe(data => {
-        console.log("DATA")
+    console.log(userRole);
+     this.repositotyService.create("signup",user).subscribe(data => {
+      Swal.fire({
+        title: 'Confirm message',
+        text: 'successful registration',
+        icon: 'success',
+        showCancelButton: true,
+        width: '500px',
+      })
     },
     (error:any) =>{
       Swal.fire({
@@ -70,7 +90,7 @@ export class RegisterPageComponent implements OnInit {
         showCancelButton: true,
         width: '500px',
       })
-    }) */
+    }) 
  
   }
 }
