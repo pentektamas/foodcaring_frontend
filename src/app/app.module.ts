@@ -25,6 +25,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
 import {ReactiveFormsModule} from "@angular/forms";
+import { UpdateMenuComponent } from './components/menu/update-menu/update-menu.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     LoginPageComponent,
     ErrorPageComponent,
     MainPageComponent,
-    CreateMenuComponent
+    CreateMenuComponent,
+    UpdateMenuComponent
   ],
   imports: [
     BrowserModule,

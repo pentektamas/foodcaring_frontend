@@ -1,17 +1,17 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {Item} from '../../../models/item.model';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs';
+import {Item} from '../../../models/item.model';
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
-import {map, startWith} from "rxjs/operators";
-import {MenuValidator} from "../../../validators/menu.validator";
-import {MenuService} from "../../../services/menu.service";
+import {MenuValidator} from '../../../validators/menu.validator';
+import {map, startWith} from 'rxjs/operators';
+import {Menu} from '../../../models/menu.model';
 
 @Component({
-  selector: 'app-create-menu',
-  templateUrl: './create-menu.component.html',
-  styleUrls: ['./create-menu.component.scss']
+  selector: 'app-update-menu',
+  templateUrl: './update-menu.component.html',
+  styleUrls: ['./update-menu.component.scss']
 })
-export class CreateMenuComponent implements OnInit {
+export class UpdateMenuComponent implements OnInit {
 
   filteredItems: Observable<Item[]>;
   allItems: Set<Item> = new Set<Item>();
@@ -19,11 +19,12 @@ export class CreateMenuComponent implements OnInit {
 
   @ViewChild('itemInput') itemInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @Input() public menu: Menu;
   @Output() public refresh = new EventEmitter<any>();
 
   public menuValidator: MenuValidator;
 
-  constructor(public menuService: MenuService) {
+  constructor() {
     this.menuValidator = new MenuValidator();
     const item1 = new Item();
     item1.name = 'A';
@@ -44,6 +45,7 @@ export class CreateMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.menuValidator.init(this.menu);
     this.filteredItems = this.menuValidator.itemsForm.valueChanges.pipe(
       startWith(null),
       map((sideEffect: string | null) => sideEffect ? this.filterItems(sideEffect) :
@@ -66,11 +68,11 @@ export class CreateMenuComponent implements OnInit {
     return Array.from(this.allItems).filter(sideEffect => sideEffect.name.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  public addMenu(): void {
+  public updateMenu(): void{
     const menu = this.menuValidator.getMenu();
     menu.itemList = Array.from(this.selectedItems);
     console.log(menu);
-    // this.menuService.create()
+    return;
   }
 
   public reload(): void {
