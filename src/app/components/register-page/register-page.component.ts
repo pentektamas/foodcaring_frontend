@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user.model';
 import { RepositoryService } from 'src/app/services/repository.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
@@ -72,8 +73,7 @@ export class RegisterPageComponent implements OnInit {
       username:value.username,
       password:value.password
     }
-    console.log(userRole);
-     this.repositotyService.create("signup",user).subscribe(data => {
+     this.repositotyService.register("signup",user).subscribe(data => {
       Swal.fire({
         title: 'Confirm message',
         text: 'successful registration',

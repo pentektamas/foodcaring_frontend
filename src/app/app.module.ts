@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {AppRoutingModule, routes} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NavbarComponent } from './components/layout-components/navbar/navbar.component';
 import { GeneralLayoutComponent } from './components/layout-components/general-layout/general-layout.component';
 import { LoginPageComponent } from './components/account-components/login-page/login-page.component';
@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import {MatSelectModule} from '@angular/material/select';
 import { RepositoryService } from './services/repository.service';
+import { AuthenticationInterceptor } from './interceptors/http-request.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,8 +55,11 @@ import { RepositoryService } from './services/repository.service';
     RouterModule.forRoot(routes)
  
   ],
-  providers: [UserService,
-  RepositoryService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthenticationInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
