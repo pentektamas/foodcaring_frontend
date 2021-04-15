@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { UserCredentials } from 'src/app/models/user-credentials.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginPageComponent implements OnInit {
   public loginForm: FormGroup;
-  constructor(public userServive:UserService,public router:Router) { 
+  constructor(public userServive:UserService) { 
     this.loginForm = new FormGroup({
       username: new FormControl(''),
       password: new FormControl('')
@@ -21,14 +21,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   public loginUser(loginFormValue:any) {
-  this.userServive.login({"username":loginFormValue.username,"password":loginFormValue.password}).subscribe(res => {
-    this.router.navigate(['mainPage']);
-  },
-    (error: any) => {
-    
-    })
-
-
+     this.userServive.login({"username":loginFormValue.username,"password":loginFormValue.password}) 
   }
   
 }
