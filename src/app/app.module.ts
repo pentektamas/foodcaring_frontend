@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import {MatSelectModule} from '@angular/material/select';
 import { RepositoryService } from './services/repository.service';
+
 import { AuthenticationInterceptor } from './interceptors/http-request.interceptor';
 @NgModule({
   declarations: [

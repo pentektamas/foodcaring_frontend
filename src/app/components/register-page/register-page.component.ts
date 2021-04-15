@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Role } from 'src/app/models/enums/role.enum';
 import { User } from 'src/app/models/user.model';
 import { RepositoryService } from 'src/app/services/repository.service';
@@ -13,7 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class RegisterPageComponent implements OnInit {
   public registerForm: FormGroup;
-  constructor(public repositotyService:RepositoryService) {    
+  constructor(public repositotyService:RepositoryService,public router:Router) {    
     this.registerForm = new FormGroup({
       firstName: new FormControl('',[Validators.required, Validators.minLength(3)]),
       lastName: new FormControl('',[Validators.required, Validators.minLength(3)]),
@@ -54,15 +55,15 @@ export class RegisterPageComponent implements OnInit {
     let userRole;
 
     if(value.role==="Disadvantaged person"){
-      userRole=Role[0];
+      userRole=Role.DISADVANTAGED_PERSON;
     }
     if(value.role==="Donor")
-       userRole=Role[1];
+       userRole=Role.DONOR;
     if(value.role==="Admin"){
-      userRole=Role[2];
+      userRole=Role.ADMIN;
     }
     if(value.role==="Restaurant responsible"){
-      userRole=Role[3];
+      userRole=Role.RESTAURANT_RESPONSIBLE;
     }
      let user:User ={
       firstName:value.firstName,
@@ -81,6 +82,7 @@ export class RegisterPageComponent implements OnInit {
         showCancelButton: true,
         width: '500px',
       })
+      this.router.navigate(['/login'])
     },
     (error:any) =>{
       Swal.fire({
