@@ -20,6 +20,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import {CreateRestaurantResponsibleComponent} from "./components/restaurant-responsible/create-restaurant-responsible/create-restaurant-responsible.component";
+import {UpdateRestaurantResponsibleComponent} from "./components/restaurant-responsible/update-restaurant-responsible/update-restaurant-responsible.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,7 +33,9 @@ import {MatIconModule} from '@angular/material/icon';
     GeneralLayoutComponent,
     LoginPageComponent,
     ErrorPageComponent,
-    MainPageComponent
+    MainPageComponent,
+    CreateRestaurantResponsibleComponent,
+    UpdateRestaurantResponsibleComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,11 @@ import {MatIconModule} from '@angular/material/icon';
     MatTabsModule,
     MatMenuModule,
     MatIconModule,
-    RouterModule.forRoot(routes)
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
