@@ -4,6 +4,8 @@ import {LoginPageComponent} from './components/account-components/login-page/log
 import {GeneralLayoutComponent} from './components/layout-components/general-layout/general-layout.component';
 import {MainPageComponent} from './components/main-page/main-page.component';
 import {ErrorPageComponent} from './components/error-page/error-page.component';
+import {MenuTableComponent} from './components/menu/menu-table/menu-table.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
 
 export const routes: Routes = [
   {
@@ -13,6 +15,14 @@ export const routes: Routes = [
       title: 'Login'
     }
   },
+  {
+    path: 'register',
+    component: RegisterPageComponent,
+    data: {
+      title: 'register'
+    }
+  },
+
   {
     path: '',
     redirectTo: 'login',
@@ -30,6 +40,13 @@ export const routes: Routes = [
         component: MainPageComponent,
         data: {
           title: 'Main Page'
+        }
+      },
+      {
+        path: 'menus',
+        component: MenuTableComponent,
+        data: {
+          title: 'Menus'
         }
       },
       {

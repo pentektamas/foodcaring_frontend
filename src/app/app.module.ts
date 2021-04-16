@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {AppRoutingModule, routes} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NavbarComponent } from './components/layout-components/navbar/navbar.component';
 import { GeneralLayoutComponent } from './components/layout-components/general-layout/general-layout.component';
 import { LoginPageComponent } from './components/account-components/login-page/login-page.component';
@@ -20,11 +20,19 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
-import { CreateMenuComponent } from './components/menu/create-menu/create-menu.component';
+import { UserService } from './services/user.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+import {MatSelectModule} from '@angular/material/select';
+import { RepositoryService } from './services/repository.service';
+import { MenuTableComponent } from './components/menu/menu-table/menu-table.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
+import {AuthenticationInterceptor} from './interceptors/http-request.interceptor';
+import { CreateMenuComponent } from './components/menu/create-menu/create-menu.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
-import {ReactiveFormsModule} from "@angular/forms";
 import { UpdateMenuComponent } from './components/menu/update-menu/update-menu.component';
 
 @NgModule({
@@ -35,6 +43,8 @@ import { UpdateMenuComponent } from './components/menu/update-menu/update-menu.c
     LoginPageComponent,
     ErrorPageComponent,
     MainPageComponent,
+    MenuTableComponent,
+    RegisterPageComponent,
     CreateMenuComponent,
     UpdateMenuComponent
   ],
@@ -52,13 +62,20 @@ import { UpdateMenuComponent } from './components/menu/update-menu/update-menu.c
     MatTabsModule,
     MatMenuModule,
     MatIconModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatDialogModule,
     MatChipsModule,
     MatAutocompleteModule,
-    RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthenticationInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

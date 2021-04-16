@@ -17,6 +17,9 @@ export class UserService {
 
   }
 
+
+
+
   public login(userCredentials: UserCredentials): Observable<any> {
     return this.http.get<any>(BASE_URL + '/login', {headers: this.createLoginHeader(userCredentials)});
   }
