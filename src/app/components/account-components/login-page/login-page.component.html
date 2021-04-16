@@ -1,1 +1,31 @@
-<p>login-page works!</p>
+<div fxLayoutAlign="center center" class="dimension">
+<mat-toolbar color="primary" >
+    <span>LOGIN</span>
+  </mat-toolbar>
+  <form  class="form align" [formGroup]="loginForm"   (ngSubmit)="loginUser(loginForm.value)">
+  <mat-card class="my-card" >
+     <mat-card-content>
+
+           <div>
+           <div class="row">
+           <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input  matInput  placeholder="Email" name="email" formControlName="username">
+           </mat-form-field>
+           </div>
+           <div class="row">
+           <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input  matInput  placeholder="Password" type="password" name="password" formControlName="password">
+           </mat-form-field>
+         </div>
+      </div>
+  
+     </mat-card-content>
+     <mat-card-actions  class="align">
+        <button mat-raised-button type="submit" color="primary">LOGIN</button>
+     </mat-card-actions>
+   
+  </mat-card>
+</form>
+</div>

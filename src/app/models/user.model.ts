@@ -1,9 +1,11 @@
 
 export class User {
-
-  // de schimbat
-  public id: string;
-  public username: string;
-  public password: string;
+  public firstName:string;
+  public lastName:string;
+  public location:string;
+  public phoneNumber:string;
+  public username:string;
+  public password:string;
+  public role:string;
 
 }
