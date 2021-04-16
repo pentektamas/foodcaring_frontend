@@ -1,10 +1,12 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Inject, OnInit, Output, ViewChild} from '@angular/core';
 import {Item} from '../../../models/item.model';
 import {Observable} from 'rxjs';
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
-import {map, startWith} from "rxjs/operators";
-import {MenuValidator} from "../../../validators/menu.validator";
-import {MenuService} from "../../../services/menu.service";
+import {map, startWith} from 'rxjs/operators';
+import {MenuValidator} from '../../../validators/menu.validator';
+import {MenuService} from '../../../services/menu.service';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {ItemService} from "../../../services/item.service";
 
 @Component({
   selector: 'app-create-menu',
@@ -23,31 +25,20 @@ export class CreateMenuComponent implements OnInit {
 
   public menuValidator: MenuValidator;
 
-  constructor(public menuService: MenuService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public restaurantId: string, public menuService: MenuService,
+              public itemService: ItemService) {
     this.menuValidator = new MenuValidator();
-    const item1 = new Item();
-    item1.name = 'A';
-    item1.description = 'desc1';
-    item1.price = 1;
-    const item2 = new Item();
-    item2.name = 'B';
-    item2.description = 'desc2';
-    item2.price = 2;
-    const item3 = new Item();
-    item3.name = 'C';
-    item3.description = 'desc3';
-    item3.price = 3;
-    this.allItems.add(item1);
-    this.allItems.add(item2);
-    this.allItems.add(item3);
-
+    this.itemService.getAll().subscribe((data) => {
+      this.allItems = new Set(data);
+      this.filteredItems = this.menuValidator.itemsForm.valueChanges.pipe(
+        startWith(null),
+        map((sideEffect: string | null) => sideEffect ? this.filterItems(sideEffect) :
+          Array.from(this.allItems.values()).slice()));
+    });
   }
 
   ngOnInit(): void {
-    this.filteredItems = this.menuValidator.itemsForm.valueChanges.pipe(
-      startWith(null),
-      map((sideEffect: string | null) => sideEffect ? this.filterItems(sideEffect) :
-        Array.from(this.allItems.values()).slice()));
+
   }
 
   remove(sideEffect: Item): void {
@@ -70,7 +61,13 @@ export class CreateMenuComponent implements OnInit {
     const menu = this.menuValidator.getMenu();
     menu.itemList = Array.from(this.selectedItems);
     console.log(menu);
-    // this.menuService.create()
+    this.menuService.create(this.restaurantId, menu).subscribe(
+      () => {
+        console.log('SUCCESS');
+      }
+      , () => {
+        console.log('ERROR');
+      });
   }
 
   public reload(): void {

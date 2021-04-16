@@ -8,6 +8,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {MenuService} from '../../../services/menu.service';
 import {RestaurantService} from '../../../services/restaurant.service';
 import {Restaurant} from '../../../models/restaurant.model';
+import {CreateMenuComponent} from "../create-menu/create-menu.component";
+import {UpdateMenuComponent} from "../update-menu/update-menu.component";
 
 @Component({
   selector: 'app-menu-table',
@@ -50,16 +52,16 @@ export class MenuTableComponent implements OnInit, AfterViewInit {
 
   public add(): void {
     console.log('add menu');
-    // this.dialog.open(CreateMenuComponent, {data: this.restaurant.id}).afterClosed().subscribe(
-    //   () => this.ngOnInit()
-    // );
+    this.dialog.open(CreateMenuComponent, {data: this.restaurant.id}).afterClosed().subscribe(
+      () => this.ngOnInit()
+    );
   }
 
   public edit($event: MouseEvent, menu: Menu): void {
     console.log('edit menu');
-    // this.dialog.open(EditMenuComponent, {data: menu}).afterClosed().subscribe(
-    //   () => this.ngOnInit()
-    // );
+    this.dialog.open(UpdateMenuComponent, {data: menu}).afterClosed().subscribe(
+      () => this.ngOnInit()
+    );
   }
 
   public delete($event: MouseEvent, menu: Menu): void {
