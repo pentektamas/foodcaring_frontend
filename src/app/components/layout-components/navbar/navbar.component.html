@@ -8,19 +8,20 @@
   <mat-tab *ngIf="role == 'ADMIN'"
            label="Restaurant Responsibles"> Here will be the ADMIN's page for working with Restaurant Responsibles' data</mat-tab>
   <mat-tab *ngIf="role == 'ADMIN'"
-           label="Disadvantaged Persons"> Here will be the ADMIN's page for working with Disadvantages Persons' data</mat-tab>
+           label="Disadvantaged Persons"> Here will be the ADMIN's page for working with Disadvantaged Persons' data</mat-tab>
   <mat-tab *ngIf="role == 'ADMIN'"
            label="Priorities"> Here will be the ADMIN's page for setting priorities for Disadv. pers.</mat-tab>
   <mat-tab *ngIf="role == 'ADMIN'"
            label="Charts"> Here will be the ADMIN's page for the charts</mat-tab>
 
   <mat-tab *ngIf="role == 'RESTAURANT_RESPONSIBLE'"
-           label="Menus"> Here will be the REST_RESP's page for working with Menus' data</mat-tab>
+           label="Menus"> <app-menu-table></app-menu-table></mat-tab>
   <mat-tab *ngIf="role == 'RESTAURANT_RESPONSIBLE'"
            label="Products"> Here will be the REST_RESP's page for working with Products' data</mat-tab>
 
   <mat-tab *ngIf="role == 'DONOR'"
            label="Make a Donation"> Here will be the DONOR's page for making the donations</mat-tab>
+
 
   <mat-tab *ngIf="role == 'DISADVANTAGED_PERSON'"
            label="Wishlist"> Here will be the Disadv. pers. wishlist page</mat-tab>

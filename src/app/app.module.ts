@@ -20,6 +20,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { MenuTableComponent } from './components/menu/menu-table/menu-table.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import {MatIconModule} from '@angular/material/icon';
     GeneralLayoutComponent,
     LoginPageComponent,
     ErrorPageComponent,
-    MainPageComponent
+    MainPageComponent,
+    MenuTableComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatTabsModule,
     MatMenuModule,
     MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
