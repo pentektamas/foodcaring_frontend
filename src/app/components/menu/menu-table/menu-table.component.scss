@@ -1,5 +1,8 @@
 h1 {
   display: inline-block;
+  background: linear-gradient(90deg, red, midnightblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .item-image {
@@ -24,10 +27,11 @@ h1 {
 
 .material-icons.add-menu {
   display: inline-block;
-  color: black;
+  color: midnightblue;
   font-size: 30px;
   vertical-align: middle;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .mat-cell {

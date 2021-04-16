@@ -22,6 +22,8 @@ export class MenuTableComponent implements OnInit, AfterViewInit {
   public restaurant: Restaurant;
   public menus = [] as Menu[];
 
+  public noRestaurants = '';
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(public dialog: MatDialog, public menuService: MenuService, public restaurantService: RestaurantService) {
@@ -36,8 +38,9 @@ export class MenuTableComponent implements OnInit, AfterViewInit {
         console.log(this.menus.length);
         this.dataSource = new MatTableDataSource<Menu>(this.menus);
         this.dataSource.paginator = this.paginator;
+        this.noRestaurants = '';
       },
-      () => console.log("No restaurants available")
+      () => this.noRestaurants = 'It seems like this restaurant has no menus... Add some!'
     );
   }
 
