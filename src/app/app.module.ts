@@ -42,7 +42,7 @@ import {UpdateRestaurantResponsibleComponent} from "./components/restaurant-resp
     ErrorPageComponent,
     MainPageComponent,
     CreateRestaurantResponsibleComponent,
-    UpdateRestaurantResponsibleComponent
+    UpdateRestaurantResponsibleComponent,
     MenuTableComponent,
     RegisterPageComponent
   ],
