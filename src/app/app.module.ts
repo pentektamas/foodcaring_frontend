@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {AppRoutingModule, routes} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NavbarComponent } from './components/layout-components/navbar/navbar.component';
 import { GeneralLayoutComponent } from './components/layout-components/general-layout/general-layout.component';
 import { LoginPageComponent } from './components/account-components/login-page/login-page.component';
@@ -22,6 +22,11 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { UserService } from './services/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+import {MatSelectModule} from '@angular/material/select';
+import { RepositoryService } from './services/repository.service';
+
+import { AuthenticationInterceptor } from './interceptors/http-request.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     GeneralLayoutComponent,
     LoginPageComponent,
     ErrorPageComponent,
-    MainPageComponent
+    MainPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     AppRoutingModule,
@@ -44,11 +50,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTabsModule,
     MatMenuModule,
     MatIconModule,
+    MatSelectModule,
     ReactiveFormsModule,
+
     RouterModule.forRoot(routes)
  
   ],
-  providers: [UserService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthenticationInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
