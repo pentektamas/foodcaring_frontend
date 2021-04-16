@@ -45,14 +45,11 @@ export class RestaurantResponsibleValidator {
     if (this.firstNameForm.hasError('required')) {
       return MessageErrorConstructorUtils.constructRequiredFieldError('first name');
     }
-    if (this.firstNameForm.hasError('pattern')) {
-      return MessageErrorConstructorUtils.constructOnlyLettersFieldError('first name');
-    }
+    // if (this.firstNameForm.hasError('pattern')) {
+    //   return MessageErrorConstructorUtils.constructOnlyLettersFieldError('first name');
+    // }
     if (this.firstNameForm.hasError('minlength')) {
-      return MessageErrorConstructorUtils.constructMinLengthFieldError('first name', 5);
-    }
-    if (this.firstNameForm.hasError('maxlength')) {
-      return MessageErrorConstructorUtils.constructMaxLengthFieldError('first name', 50);
+      return MessageErrorConstructorUtils.constructMinLengthFieldError('first name', 3);
     }
   }
 
@@ -60,14 +57,11 @@ export class RestaurantResponsibleValidator {
     if (this.lastNameForm.hasError('required')) {
       return MessageErrorConstructorUtils.constructRequiredFieldError('last name');
     }
-    if (this.lastNameForm.hasError('pattern')) {
-      return MessageErrorConstructorUtils.constructOnlyLettersFieldError('last name');
-    }
+    // if (this.lastNameForm.hasError('pattern')) {
+    //   return MessageErrorConstructorUtils.constructOnlyLettersFieldError('last name');
+    // }
     if (this.lastNameForm.hasError('minlength')) {
-      return MessageErrorConstructorUtils.constructMinLengthFieldError('last name', 5);
-    }
-    if (this.lastNameForm.hasError('maxlength')) {
-      return MessageErrorConstructorUtils.constructMaxLengthFieldError('last name', 50);
+      return MessageErrorConstructorUtils.constructMinLengthFieldError('last name', 3);
     }
   }
 
@@ -78,23 +72,17 @@ export class RestaurantResponsibleValidator {
     if (this.locationForm.hasError('minlength')) {
       return MessageErrorConstructorUtils.constructMinLengthFieldError('location', 5);
     }
-    if (this.locationForm.hasError('maxlength')) {
-      return MessageErrorConstructorUtils.constructMaxLengthFieldError('location', 50);
-    }
   }
 
   public getPhoneNumberFormErrors(): string {
     if (this.phoneNumberForm.hasError('required')) {
       return MessageErrorConstructorUtils.constructRequiredFieldError('phone number');
     }
-    if (this.phoneNumberForm.hasError('pattern')) {
-      return MessageErrorConstructorUtils.constructOnlyDigitsAndPlusSignFieldError('phone number');
-    }
+    // if (this.phoneNumberForm.hasError('pattern')) {
+    //   return MessageErrorConstructorUtils.constructOnlyDigitsAndPlusSignFieldError('phone number');
+    // }
     if (this.phoneNumberForm.hasError('minlength')) {
       return MessageErrorConstructorUtils.constructMinLengthFieldError('phone number', 10);
-    }
-    if (this.phoneNumberForm.hasError('maxlength')) {
-      return MessageErrorConstructorUtils.constructMaxLengthFieldError('phone number', 50);
     }
   }
 
@@ -105,9 +93,6 @@ export class RestaurantResponsibleValidator {
     if (this.usernameForm.hasError('minlength')) {
       return MessageErrorConstructorUtils.constructMinLengthFieldError('username', 5);
     }
-    if (this.usernameForm.hasError('maxlength')) {
-      return MessageErrorConstructorUtils.constructMaxLengthFieldError('username', 50);
-    }
   }
 
   public getPasswordFormErrors(): string {
@@ -115,10 +100,7 @@ export class RestaurantResponsibleValidator {
       return MessageErrorConstructorUtils.constructRequiredFieldError('password');
     }
     if (this.passwordForm.hasError('minlength')) {
-      return MessageErrorConstructorUtils.constructMinLengthFieldError('password', 5);
-    }
-    if (this.passwordForm.hasError('maxlength')) {
-      return MessageErrorConstructorUtils.constructMaxLengthFieldError('password', 50);
+      return MessageErrorConstructorUtils.constructMinLengthFieldError('password', 8);
     }
   }
 
@@ -128,9 +110,6 @@ export class RestaurantResponsibleValidator {
     }
     if (this.restaurantNameForm.hasError('minlength')) {
       return MessageErrorConstructorUtils.constructMinLengthFieldError('restaurant name', 2);
-    }
-    if (this.restaurantNameForm.hasError('maxlength')) {
-      return MessageErrorConstructorUtils.constructMaxLengthFieldError('restaurant name', 50);
     }
   }
 
