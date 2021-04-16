@@ -25,35 +25,29 @@ export class MenuTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(public dialog: MatDialog, public menuService: MenuService, public restaurantService: RestaurantService) {
+  }
+
+  ngOnInit(): void {
     this.restaurantService.getRestaurantForResponsible(localStorage.getItem('username')).subscribe(
       (restaurant) => {
+        console.log(restaurant);
         this.restaurant = restaurant;
-        this.getAll();
+        this.menus = this.restaurant.menus;
+        console.log(this.menus.length);
+        this.dataSource = new MatTableDataSource<Menu>(this.menus);
+        this.dataSource.paginator = this.paginator;
       },
       () => console.log("No restaurants available")
     );
   }
 
-  ngOnInit(): void {
-    this.dataSource = new MatTableDataSource<Menu>(this.menus);
-  }
-
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-  }
 
-  public getAll(): void {
-    // this.menus = this.createMockMenus();
-    this.menus = this.restaurant.menus;
-    // this.menuService.getAll(this.restaurantId).subscribe(
-    //   (menus) => this.menus = menus,
-    //   () => console.log('open error modal')
-    // );
   }
 
   public add(): void {
     console.log('add menu');
-    // this.dialog.open(CreateMenuComponent, {data: this.restaurantId}).afterClosed().subscribe(
+    // this.dialog.open(CreateMenuComponent, {data: this.restaurant.id}).afterClosed().subscribe(
     //   () => this.ngOnInit()
     // );
   }
@@ -67,12 +61,10 @@ export class MenuTableComponent implements OnInit, AfterViewInit {
 
   public delete($event: MouseEvent, menu: Menu): void {
     console.log('delete menu');
-    this.menuService.delete(menu.id).subscribe(
+    this.restaurantService.deleteMenu(menu, this.restaurant).subscribe(
       () => {
         console.log('open success modal');
-        // .afterClosed().subscribe(
-        //     //   () => this.ngOnInit()
-        //     // );
+        this.ngOnInit();
       },
       () => console.log('open error dialog')
     );

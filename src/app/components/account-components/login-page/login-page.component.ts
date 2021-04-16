@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginPageComponent implements OnInit {
   public loginForm: FormGroup;
-  constructor(public userServive:UserService,public router:Router) { 
+  constructor(public userServive:UserService,public router:Router) {
     this.loginForm = new FormGroup({
       username: new FormControl(''),
       password: new FormControl('')
@@ -23,6 +23,8 @@ export class LoginPageComponent implements OnInit {
   public loginUser(loginFormValue:any) {
     this.userServive.login({"username":loginFormValue.username,"password":loginFormValue.password}).subscribe(res => {
       this.router.navigate(['mainPage']);
+      localStorage.setItem('username', res['name']);
+      localStorage.setItem('role', res['authorities'][0]['authority'].split(/_(.+)/)[1]);
     },
       (error: any) => {
         Swal.fire({
@@ -32,9 +34,9 @@ export class LoginPageComponent implements OnInit {
           showCancelButton: true,
           width: '500px',
         })
-  
+
       })
-  
+
   }
-  
+
 }
