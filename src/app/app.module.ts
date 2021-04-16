@@ -25,8 +25,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import {MatSelectModule} from '@angular/material/select';
 import { RepositoryService } from './services/repository.service';
+import { MenuTableComponent } from './components/menu/menu-table/menu-table.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import {AuthenticationInterceptor} from './interceptors/http-request.interceptor';
 
-import { AuthenticationInterceptor } from './interceptors/http-request.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +39,11 @@ import { AuthenticationInterceptor } from './interceptors/http-request.intercept
     LoginPageComponent,
     ErrorPageComponent,
     MainPageComponent,
+    MenuTableComponent,
     RegisterPageComponent
   ],
   imports: [
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -52,9 +58,11 @@ import { AuthenticationInterceptor } from './interceptors/http-request.intercept
     MatIconModule,
     MatSelectModule,
     ReactiveFormsModule,
-
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule,
     RouterModule.forRoot(routes)
- 
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
