@@ -5,6 +5,7 @@ import {GeneralLayoutComponent} from './components/layout-components/general-lay
 import {MainPageComponent} from './components/main-page/main-page.component';
 import {ErrorPageComponent} from './components/error-page/error-page.component';
 import {MenuTableComponent} from './components/menu/menu-table/menu-table.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
 
 export const routes: Routes = [
   {
@@ -14,6 +15,14 @@ export const routes: Routes = [
       title: 'Login'
     }
   },
+  {
+    path: 'register',
+    component: RegisterPageComponent,
+    data: {
+      title: 'register'
+    }
+  },
+
   {
     path: '',
     redirectTo: 'login',

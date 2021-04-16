@@ -2,9 +2,11 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from '../interfaces/user.model';
 import {EnvironmentUrlService} from './environment-url.service';
-import {Observable} from 'rxjs';
+import {REQUEST_HEADERS} from '../utils/http-constants'
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class RepositoryService{
     removeLoggedUser(user: User): void {
       throw new Error('Method not implemented.');
@@ -13,6 +15,7 @@ export class RepositoryService{
 
     constructor(public httpClient: HttpClient, public environmentUrlService: EnvironmentUrlService){
     }
+
 
 
 
@@ -28,6 +31,15 @@ export class RepositoryService{
         if(localStorage.getItem('user') != null)
             return true;
         return false;
+    }
+
+    public register(route:string, body:any){
+        let headers = new HttpHeaders();
+        headers = headers.append('Cache-Control','no-cache',);
+        headers = headers.append('Type','application/json',);
+        headers = headers.append('Accept','application/json',);
+        headers = headers.append('Access-Control-Allow-Origin','*',);
+        return this.httpClient.post<any>(this.createCompleteRoute(route,this.environmentUrlService.urlAddress),body,{headers});
     }
 
     public getData(route: string, headers?: HttpHeaders){
