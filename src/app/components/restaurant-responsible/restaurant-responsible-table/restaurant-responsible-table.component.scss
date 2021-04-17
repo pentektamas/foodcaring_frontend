@@ -1,0 +1,33 @@
+h1 {
+  display: inline-block;
+  background: linear-gradient(90deg, red, midnightblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mat-table {
+  width: 95%;
+}
+
+.paginator-class {
+  margin-right: 2.5%;
+}
+
+
+.material-icons {
+  color: midnightblue;
+  cursor: pointer;
+}
+
+.material-icons.add-menu {
+  display: inline-block;
+  color: midnightblue;
+  font-size: 30px;
+  vertical-align: middle;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.mat-cell {
+  font-size: 20px;
+}

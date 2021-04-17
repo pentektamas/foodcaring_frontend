@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {Restaurant} from '../../../models/restaurant.model';
 import {RestaurantResponsibleValidator} from '../../../validators/restaurant-responsible.validator';
 import {RestaurantResponsible} from '../../../models/restaurant-responsible.model';
@@ -6,7 +6,7 @@ import {RestaurantResponsibleService} from '../../../services/restaurant-respons
 import {RestaurantService} from '../../../services/restaurant.service';
 import {SuccessModalComponent} from "../../modals/success-modal/success-modal.component";
 import {ErrorModalComponent} from "../../modals/error-modal/error-modal.component";
-import {MatDialog} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-restaurant-responsible',
@@ -17,11 +17,9 @@ export class UpdateRestaurantResponsibleComponent implements OnInit {
 
   public restaurants: Restaurant[] = [];
 
-  @Input() public restaurantResponsible: RestaurantResponsible;
-
   public restaurantResponsibleValidator: RestaurantResponsibleValidator;
 
-  constructor(public restaurantResponsibleService: RestaurantResponsibleService, public restaurantService: RestaurantService,
+  constructor(@Inject(MAT_DIALOG_DATA) public restaurantResponsible: RestaurantResponsible, public restaurantResponsibleService: RestaurantResponsibleService, public restaurantService: RestaurantService,
               public dialog: MatDialog) {
     this.restaurantResponsibleValidator = new RestaurantResponsibleValidator();
   }
