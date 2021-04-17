@@ -20,6 +20,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.setItem('tab', String(0));
   }
 
   public loginUser(loginFormValue:any) {
