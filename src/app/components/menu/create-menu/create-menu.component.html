@@ -36,7 +36,7 @@
   </mat-form-field>
 
   <div mat-dialog-actions align="center">
-    <button class="modal-button" mat-button (click)="addMenu()">Add Menu</button>
+    <button class="modal-button" *ngIf="menuValidator.isValid()" mat-button (click)="addMenu()">Add Menu</button>
     <button class="modal-button" mat-button mat-dialog-close>Close</button>
   </div>
   <br>

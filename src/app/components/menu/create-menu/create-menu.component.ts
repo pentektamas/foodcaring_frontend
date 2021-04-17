@@ -1,12 +1,14 @@
-import {Component, ElementRef, EventEmitter, Inject, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {Item} from '../../../models/item.model';
 import {Observable} from 'rxjs';
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {map, startWith} from 'rxjs/operators';
 import {MenuValidator} from '../../../validators/menu.validator';
 import {MenuService} from '../../../services/menu.service';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {ItemService} from "../../../services/item.service";
+import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
+import {ItemService} from '../../../services/item.service';
+import {SuccessModalComponent} from '../../modals/success-modal/success-modal.component';
+import {ErrorModalComponent} from '../../modals/error-modal/error-modal.component';
 
 @Component({
   selector: 'app-create-menu',
@@ -21,18 +23,17 @@ export class CreateMenuComponent implements OnInit {
 
   @ViewChild('itemInput') itemInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
-  @Output() public refresh = new EventEmitter<any>();
 
   public menuValidator: MenuValidator;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public restaurantId: string, public menuService: MenuService,
+  constructor(@Inject(MAT_DIALOG_DATA) public restaurantId: string, public dialog: MatDialog, public menuService: MenuService,
               public itemService: ItemService) {
     this.menuValidator = new MenuValidator();
     this.itemService.getAll().subscribe((data) => {
       this.allItems = new Set(data);
       this.filteredItems = this.menuValidator.itemsForm.valueChanges.pipe(
         startWith(null),
-        map((sideEffect: string | null) => sideEffect ? this.filterItems(sideEffect) :
+        map((item: string | null) => item ? this.filterItems(item) :
           Array.from(this.allItems.values()).slice()));
     });
   }
@@ -60,17 +61,13 @@ export class CreateMenuComponent implements OnInit {
   public addMenu(): void {
     const menu = this.menuValidator.getMenu();
     menu.itemList = Array.from(this.selectedItems);
-    console.log(menu);
     this.menuService.create(this.restaurantId, menu).subscribe(
       () => {
-        console.log('SUCCESS');
+        this.dialog.closeAll();
+        this.dialog.open(SuccessModalComponent, {data: `The menu was created!`});
       }
       , () => {
-        console.log('ERROR');
+        this.dialog.open(ErrorModalComponent, {data: `The menu could not be created!`});
       });
-  }
-
-  public reload(): void {
-    this.refresh.next();
   }
 }

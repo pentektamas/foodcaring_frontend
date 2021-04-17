@@ -45,7 +45,7 @@ export class MenuValidator {
   }
 
   public isValid(): boolean {
-    return !this.nameForm.errors && !this.itemsForm.errors;
+    return !this.nameForm.errors;
   }
 
   public init(menu: Menu): void {

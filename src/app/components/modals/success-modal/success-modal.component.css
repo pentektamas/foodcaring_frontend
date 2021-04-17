@@ -1,0 +1,26 @@
+.all {
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  position: relative;
+  color: rgb(0, 157, 0);
+}
+
+.icon {
+  color: rgb(0, 157, 0);
+  position: relative;
+  top: 5px;
+  text-align: center;
+}
+
+.material-icons {
+  font-size: 48px;
+}
+
+.content {
+  min-width: 200px;
+  text-align: center;
+}
+

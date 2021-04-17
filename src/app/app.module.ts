@@ -34,6 +34,8 @@ import { CreateMenuComponent } from './components/menu/create-menu/create-menu.c
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
 import { UpdateMenuComponent } from './components/menu/update-menu/update-menu.component';
+import {SuccessModalComponent} from "./components/modals/success-modal/success-modal.component";
+import {ErrorModalComponent} from "./components/modals/error-modal/error-modal.component";
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { UpdateMenuComponent } from './components/menu/update-menu/update-menu.c
     MenuTableComponent,
     RegisterPageComponent,
     CreateMenuComponent,
-    UpdateMenuComponent
+    UpdateMenuComponent,
+    SuccessModalComponent,
+    ErrorModalComponent
   ],
   imports: [
     BrowserModule,
