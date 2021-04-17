@@ -3,3 +3,18 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.modal-title {
+  font-family: "Roboto", serif;
+  font-size: 20px;
+  position: relative;
+  top: 20px;
+  height: 50px;
+}
+.modal-content {
+  padding: 20px 10px 10px 10px;
+  overflow: hidden;
+  width: 95%;
+}
+.modal-chip-list, .modal-input{
+  width: 100%;
+}

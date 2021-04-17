@@ -30,6 +30,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {AuthenticationInterceptor} from './interceptors/http-request.interceptor';
+import { CreateMenuComponent } from './components/menu/create-menu/create-menu.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
+import { UpdateMenuComponent } from './components/menu/update-menu/update-menu.component';
+import {SuccessModalComponent} from "./components/modals/success-modal/success-modal.component";
+import {ErrorModalComponent} from "./components/modals/error-modal/error-modal.component";
 
 @NgModule({
   declarations: [
@@ -40,7 +46,11 @@ import {AuthenticationInterceptor} from './interceptors/http-request.interceptor
     ErrorPageComponent,
     MainPageComponent,
     MenuTableComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    CreateMenuComponent,
+    UpdateMenuComponent,
+    SuccessModalComponent,
+    ErrorModalComponent
   ],
   imports: [
     BrowserModule,
@@ -61,8 +71,9 @@ import {AuthenticationInterceptor} from './interceptors/http-request.interceptor
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatChipsModule,
+    MatAutocompleteModule,
     RouterModule.forRoot(routes)
-
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
