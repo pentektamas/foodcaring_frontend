@@ -1,8 +1,9 @@
 <mat-tab-group class="tabs" #tabs (selectedTabChange)="setTab($event)">
-  <mat-tab label="Home" >
+  <mat-tab label="Home">
 <!--    <div align="center">-->
 <!--      <img class='logo' src="../../../../assets/img/logo.png">-->
 <!--    </div>-->
+    <app-main-page [tabs]="tabs"></app-main-page>
   </mat-tab>
 
   <mat-tab *ngIf="role == 'ADMIN'"

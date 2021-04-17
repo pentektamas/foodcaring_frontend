@@ -19,3 +19,11 @@
 .logo {
   height: 150px !important;
 }
+::ng-deep
+.mat-tab-header{
+  width: 100%;
+  position: fixed !important;
+  z-index: 9;
+  top:0;
+  background: white;
+}
