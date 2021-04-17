@@ -27,6 +27,7 @@ export class LoginPageComponent implements OnInit {
       this.router.navigate(['mainPage']);
       localStorage.setItem('username', res['name']);
       localStorage.setItem('role', res['authorities'][0]['authority'].split(/_(.+)/)[1]);
+        localStorage.setItem('tab', String(0));
     },
       (error: any) => {
         this.router.navigate(['login']);

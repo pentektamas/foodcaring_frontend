@@ -4,7 +4,7 @@ stages:
 
 variables:
   CI: ""
-  APP_NAME: nume-app
+  APP_NAME: iulia-santa-foodcaring-front
 
 build:
   image: docker:latest
