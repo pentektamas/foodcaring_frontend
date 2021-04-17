@@ -119,18 +119,18 @@ export class RestaurantResponsibleValidator {
   }
 
   public init(restaurantResponsible: RestaurantResponsible): void {
-    this.firstNameForm = new FormControl(restaurantResponsible?.firstName, [Validators.required, Validators.pattern('[a-zA-Z ]*'),
-      Validators.minLength(5), Validators.maxLength(50)]);
-    this.lastNameForm = new FormControl(restaurantResponsible?.lastName, [Validators.required, Validators.pattern('[a-zA-Z ]*'),
-      Validators.minLength(5), Validators.maxLength(50)]);
+    this.firstNameForm = new FormControl(restaurantResponsible?.firstName, [Validators.required,
+      Validators.minLength(3), Validators.maxLength(50)]);
+    this.lastNameForm = new FormControl(restaurantResponsible?.lastName, [Validators.required,
+      Validators.minLength(3), Validators.maxLength(50)]);
     this.locationForm = new FormControl(restaurantResponsible?.location, [Validators.required,
       Validators.minLength(5), Validators.maxLength(50)]);
-    this.phoneNumberForm = new FormControl(restaurantResponsible?.phoneNumber, [Validators.required, Validators.pattern('[0-9+ ]*'),
-      Validators.minLength(5), Validators.maxLength(50)]);
+    this.phoneNumberForm = new FormControl(restaurantResponsible?.phoneNumber, [Validators.required,
+      Validators.minLength(10), Validators.maxLength(50)]);
     this.usernameForm = new FormControl(restaurantResponsible?.username, [Validators.required,
       Validators.minLength(5), Validators.maxLength(50)]);
     this.passwordForm = new FormControl(restaurantResponsible?.password, [Validators.required,
-      Validators.minLength(5), Validators.maxLength(50)]);
+      Validators.minLength(8), Validators.maxLength(50)]);
     this.restaurantNameForm = new FormControl(restaurantResponsible?.restaurantName, [Validators.required,
       Validators.minLength(2), Validators.maxLength(50)]);
   }

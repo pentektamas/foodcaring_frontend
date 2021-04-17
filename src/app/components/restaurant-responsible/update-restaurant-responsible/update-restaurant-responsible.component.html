@@ -57,7 +57,7 @@
   </mat-form-field>
   <br><br>
   <div mat-dialog-actions align="center">
-    <button class="modal-button" mat-button (click)="updateRestaurantResponsible()">Update Restaurant Responsible</button>
+    <button class="modal-button" mat-button *ngIf="this.restaurantResponsibleValidator.isValid()" (click)="updateRestaurantResponsible()">Update Restaurant Responsible</button>
     <button class="modal-button" mat-button mat-dialog-close>Close</button>
   </div>
   <br>

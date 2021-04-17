@@ -17,10 +17,7 @@ export class RestaurantResponsibleService {
   }
 
   public update(restaurantResponsible: RestaurantResponsible): Observable<RestaurantResponsible> {
-    return this.http.put<RestaurantResponsible>(BASE_URL + '/admin/responsible/update/' + restaurantResponsible.id, restaurantResponsible, REQUEST_HEADERS);
+    return this.http.put<RestaurantResponsible>(BASE_URL + '/admin/responsible/update/' + restaurantResponsible.id,
+      restaurantResponsible, REQUEST_HEADERS);
   }
-
-  // public delete(menuId: String): Observable<any> {
-  //   return this.http.delete<any>(BASE_URL + '/menu/' + menuId, REQUEST_HEADERS);
-  // }
 }

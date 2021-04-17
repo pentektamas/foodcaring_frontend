@@ -18,7 +18,8 @@
   <br><br>
   <mat-form-field class="modal-input half-modal-input" appearance="legacy">
     <mat-label>Location</mat-label>
-    <input matInput required placeholder="str. Lalelelor nr. 29" [formControl]="restaurantResponsibleValidator.locationForm">
+    <input matInput required placeholder="str. Lalelelor nr. 29"
+           [formControl]="restaurantResponsibleValidator.locationForm">
     <mat-error
       *ngIf="restaurantResponsibleValidator.locationForm.invalid">{{restaurantResponsibleValidator.getLocationFormErrors()}}
     </mat-error>
@@ -56,7 +57,9 @@
   </mat-form-field>
   <br><br>
   <div mat-dialog-actions align="center">
-    <button class="modal-button" mat-button (click)="addRestaurantResponsible()">Add Restaurant Responsible</button>
+    <button class="modal-button" mat-button *ngIf="this.restaurantResponsibleValidator.isValid()"
+            (click)="addRestaurantResponsible()">Add Restaurant Responsible
+    </button>
     <button class="modal-button" mat-button mat-dialog-close>Close</button>
   </div>
   <br>
