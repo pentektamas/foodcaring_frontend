@@ -30,6 +30,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {AuthenticationInterceptor} from './interceptors/http-request.interceptor';
+import {CreateRestaurantResponsibleComponent} from "./components/restaurant-responsible/create-restaurant-responsible/create-restaurant-responsible.component";
+import {UpdateRestaurantResponsibleComponent} from "./components/restaurant-responsible/update-restaurant-responsible/update-restaurant-responsible.component";
 import { CreateMenuComponent } from './components/menu/create-menu/create-menu.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
@@ -45,6 +47,8 @@ import {ErrorModalComponent} from "./components/modals/error-modal/error-modal.c
     LoginPageComponent,
     ErrorPageComponent,
     MainPageComponent,
+    CreateRestaurantResponsibleComponent,
+    UpdateRestaurantResponsibleComponent,
     MenuTableComponent,
     RegisterPageComponent,
     CreateMenuComponent,
@@ -66,6 +70,8 @@ import {ErrorModalComponent} from "./components/modals/error-modal/error-modal.c
     MatTabsModule,
     MatMenuModule,
     MatIconModule,
+    MatDialogModule,
+    MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
     MatTableModule,

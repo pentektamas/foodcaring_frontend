@@ -19,6 +19,10 @@ export class MessageErrorConstructorUtils {
     return 'The ' + field + ' should contain only letters & digits!';
   }
 
+  public static constructOnlyDigitsAndPlusSignFieldError(field: string): string {
+    return 'The ' + field + ' should contain only digits and \'+\'!';
+  }
+
   public static constructOnlyLettersAndDigitsAndSignsFieldError(field: string): string {
     return 'The ' + field + ' should contain only letters, digits and \'*,-,_,!\'!';
   }

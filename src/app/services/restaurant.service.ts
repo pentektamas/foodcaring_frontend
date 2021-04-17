@@ -12,6 +12,10 @@ export class RestaurantService {
 
   constructor(public http: HttpClient) {}
 
+  public getAll(): Observable<Restaurant[]>{
+    return this.http.get<Restaurant[]>(BASE_URL + '/restaurant', REQUEST_HEADERS);
+  }
+
   public getRestaurantForResponsible(username: String): Observable<Restaurant> {
     return this.http.get<Restaurant>(BASE_URL + '/restaurant-responsible/' + username, REQUEST_HEADERS);
   }

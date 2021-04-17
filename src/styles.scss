@@ -15,6 +15,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   overflow: hidden;
   width: 95%;
 }
-.modal-chip-list, .modal-input{
+.modal-chip-list, .modal-input {
   width: 100%;
+}
+.half-modal-input{
+  width:48%;
 }
