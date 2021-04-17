@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {ErrorModalComponent} from "../../modals/error-modal/error-modal.component";
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -10,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginPageComponent implements OnInit {
   public loginForm: FormGroup;
-  constructor(public userServive:UserService,public router:Router) {
+  constructor(public userServive:UserService,public router:Router, public dialog: MatDialog) {
     this.loginForm = new FormGroup({
       username: new FormControl(''),
       password: new FormControl('')
@@ -27,15 +29,15 @@ export class LoginPageComponent implements OnInit {
       localStorage.setItem('role', res['authorities'][0]['authority'].split(/_(.+)/)[1]);
     },
       (error: any) => {
+        this.router.navigate(['login']);
         Swal.fire({
           title: 'Alert message',
           text: 'Incorrect credentials. Please try again.',
           icon: 'error',
           showCancelButton: true,
           width: '500px',
-        })
-
-      })
+        });
+      });
 
   }
 

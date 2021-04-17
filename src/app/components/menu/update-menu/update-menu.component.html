@@ -1,0 +1,43 @@
+<div class="modal-title"> Please fill in the following fields in order to update a Menu:</div>
+<div class="modal-content">
+  <mat-form-field class="modal-input" appearance="legacy">
+    <mat-label>Name</mat-label>
+    <input matInput required placeholder="Breakfast Menu" [formControl]="menuValidator.nameForm">
+    <mat-error
+      *ngIf="menuValidator.nameForm.invalid">{{menuValidator.getNameFormErrors()}}
+    </mat-error>
+  </mat-form-field>
+  <br><br>
+  <mat-form-field class="modal-chip-list">
+    <mat-chip-list #chipList aria-label="Item selection">
+      <mat-chip
+        *ngFor="let item of selectedItems"
+        [selectable]="false"
+        [removable]="true"
+        (removed)="remove(item)">
+        {{item.name}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Add item..."
+        #itemInput
+        [formControl]="menuValidator.itemsForm"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let item of filteredItems | async" [value]="item">
+        {{item.name}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error
+      *ngIf="menuValidator.itemsForm.invalid">{{menuValidator.getItemsFormErrors()}}
+    </mat-error>
+  </mat-form-field>
+
+  <div mat-dialog-actions align="center">
+    <button class="modal-button" *ngIf="menuValidator.isValid()" mat-button (click)="updateMenu()">Update Menu</button>
+    <button class="modal-button" mat-button mat-dialog-close>Close</button>
+  </div>
+  <br>
+</div>

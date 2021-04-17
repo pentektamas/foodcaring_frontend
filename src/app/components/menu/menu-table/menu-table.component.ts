@@ -8,6 +8,10 @@ import {MatDialog} from '@angular/material/dialog';
 import {MenuService} from '../../../services/menu.service';
 import {RestaurantService} from '../../../services/restaurant.service';
 import {Restaurant} from '../../../models/restaurant.model';
+import {CreateMenuComponent} from '../create-menu/create-menu.component';
+import {UpdateMenuComponent} from '../update-menu/update-menu.component';
+import {SuccessModalComponent} from "../../modals/success-modal/success-modal.component";
+import {ErrorModalComponent} from "../../modals/error-modal/error-modal.component";
 
 @Component({
   selector: 'app-menu-table',
@@ -32,10 +36,8 @@ export class MenuTableComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.restaurantService.getRestaurantForResponsible(localStorage.getItem('username')).subscribe(
       (restaurant) => {
-        console.log(restaurant);
         this.restaurant = restaurant;
         this.menus = this.restaurant.menus;
-        console.log(this.menus.length);
         this.dataSource = new MatTableDataSource<Menu>(this.menus);
         this.dataSource.paginator = this.paginator;
         this.noRestaurants = '';
@@ -49,27 +51,25 @@ export class MenuTableComponent implements OnInit, AfterViewInit {
   }
 
   public add(): void {
-    console.log('add menu');
-    // this.dialog.open(CreateMenuComponent, {data: this.restaurant.id}).afterClosed().subscribe(
-    //   () => this.ngOnInit()
-    // );
+    this.dialog.open(CreateMenuComponent, {data: this.restaurant.id}).afterClosed().subscribe(
+      () => this.ngOnInit()
+    );
   }
 
   public edit($event: MouseEvent, menu: Menu): void {
-    console.log('edit menu');
-    // this.dialog.open(EditMenuComponent, {data: menu}).afterClosed().subscribe(
-    //   () => this.ngOnInit()
-    // );
+    this.dialog.open(UpdateMenuComponent, {data: menu}).afterClosed().subscribe(
+      () => this.ngOnInit()
+    );
   }
 
   public delete($event: MouseEvent, menu: Menu): void {
-    console.log('delete menu');
     this.restaurantService.deleteMenu(menu, this.restaurant).subscribe(
       () => {
-        console.log('open success modal');
+        this.dialog.open(SuccessModalComponent, {data: `The menu was deleted!`});
         this.ngOnInit();
       },
-      () => console.log('open error dialog')
+      () =>
+        this.dialog.open(ErrorModalComponent, {data: `The menu could not be deleted!`})
     );
   }
 
