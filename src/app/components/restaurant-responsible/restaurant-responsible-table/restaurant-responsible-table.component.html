@@ -1,5 +1,5 @@
-<br><br><br><br>
-<div align="center">
+<div class="content" align="center">
+  <br><br><br>
   <h1> Restaurant Responsibles </h1>
   <span title="Create a new restaurant responsible" class="material-icons add-menu" (click)="add()">add</span>
   <br>
@@ -40,4 +40,5 @@
 
   </table>
   <mat-paginator *ngIf="noResponsibles.length == 0" class='paginator-class' [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <div class="pad-bottom"></div>
 </div>
