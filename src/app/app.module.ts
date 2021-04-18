@@ -30,14 +30,17 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {AuthenticationInterceptor} from './interceptors/http-request.interceptor';
-import {CreateRestaurantResponsibleComponent} from "./components/restaurant-responsible/create-restaurant-responsible/create-restaurant-responsible.component";
-import {UpdateRestaurantResponsibleComponent} from "./components/restaurant-responsible/update-restaurant-responsible/update-restaurant-responsible.component";
+import {CreateRestaurantResponsibleComponent} from './components/restaurant-responsible/create-restaurant-responsible/create-restaurant-responsible.component';
+import {UpdateRestaurantResponsibleComponent} from './components/restaurant-responsible/update-restaurant-responsible/update-restaurant-responsible.component';
 import { CreateMenuComponent } from './components/menu/create-menu/create-menu.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
 import { UpdateMenuComponent } from './components/menu/update-menu/update-menu.component';
-import {SuccessModalComponent} from "./components/modals/success-modal/success-modal.component";
-import {ErrorModalComponent} from "./components/modals/error-modal/error-modal.component";
+import {SuccessModalComponent} from './components/modals/success-modal/success-modal.component';
+import {ErrorModalComponent} from './components/modals/error-modal/error-modal.component';
+import { DisadvantagedPeopleTableComponent } from './components/disadvantaged-persons/disadvantaged-persons-table/disadvantaged-persons-table.component';
+import { UpdatePriorityDisadvantagedPersonComponent } from './components/disadvantaged-persons/update-priority-disadvantaged-person/update-priority-disadvantaged-person.component';
+import { DisadvantagedPersonsTableSortedComponent } from './components/disadvantaged-persons/disadvantaged-persons-table-sorted/disadvantaged-persons-table-sorted.component';
 import { RestaurantResponsibleTableComponent } from './components/restaurant-responsible/restaurant-responsible-table/restaurant-responsible-table.component';
 
 @NgModule({
@@ -56,7 +59,10 @@ import { RestaurantResponsibleTableComponent } from './components/restaurant-res
     UpdateMenuComponent,
     SuccessModalComponent,
     ErrorModalComponent,
-    RestaurantResponsibleTableComponent
+    RestaurantResponsibleTableComponent,
+    DisadvantagedPeopleTableComponent,
+    UpdatePriorityDisadvantagedPersonComponent,
+    DisadvantagedPersonsTableSortedComponent
   ],
   imports: [
     BrowserModule,

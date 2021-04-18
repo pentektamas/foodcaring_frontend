@@ -1,0 +1,92 @@
+mat-card {
+  background: rgb(216, 233, 245);
+  min-height: 100px;
+  width: 390px;
+  display: inline-block;
+  margin: 10px;
+  user-select: none;
+}
+
+.icons {
+  position: relative;
+  font-size: 70px;
+}
+
+.image {
+  position: relative;
+  left: 10px;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.info {
+  width: 280px;
+  height: 100px;
+  position: relative;
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 5px;
+  overflow: auto;
+}
+
+.title {
+  font-family: "Roboto", serif;
+  font-size: 20px;
+  position: relative;
+  top: 20px;
+  height: 50px;
+}
+
+.add {
+  position: relative;
+  top: -10px;
+  float: right;
+}
+
+.operations {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  left: 380px;
+}
+
+.update {
+  position: absolute;
+  left: -15px;
+  z-index: 2000;
+}
+
+.delete {
+  position: absolute;
+  left: 10px;
+  z-index: 2000;
+}
+h1 {
+  display: inline-block;
+  background: linear-gradient(90deg, red, midnightblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.material-icons {
+  color: midnightblue;
+  cursor: pointer;
+}
+
+.material-icons.add-menu {
+  display: inline-block;
+  color: midnightblue;
+  font-size: 30px;
+  vertical-align: middle;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+.paginator-class {
+  margin-right: 2.5%;
+  float:bottom;
+  position: relative;
+  bottom: 0;
+}
+.users{
+  display: inline-block;
+}

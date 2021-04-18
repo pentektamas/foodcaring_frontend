@@ -1,0 +1,23 @@
+<br><br><br><br>
+<div align="center">
+  <h1> Disadvantaged persons ordered by priority</h1>
+  <br>
+  <h1>{{noDisadvantagedPersons}}</h1>
+  <div id="users" *ngFor="let disadvantagedPerson of obs |async;let i =index" class="users">
+    <mat-card>
+      <img class="image" src="../../../../assets/img/disadvantagedPerson.png">
+      <div class="operations">
+        <app-update-priority-disadvantaged-person [disadvantagedPerson]="disadvantagedPerson" (refresh)="refresh()"></app-update-priority-disadvantaged-person>
+      </div>
+      <div  class="info">
+        <b>Name: </b>{{disadvantagedPerson.firstName}} {{disadvantagedPerson.lastName}} <br>
+        <b>Location: </b>{{disadvantagedPerson.location}} <br>
+        <b>Phone number: </b>{{disadvantagedPerson.phoneNumber}} <br>
+      </div>
+    </mat-card>
+
+  </div>
+  <br>
+  <mat-paginator *ngIf="noDisadvantagedPersons.length == 0" class='paginator-class' [pageSizeOptions]="[6, 12, 21]" showFirstLastButtons></mat-paginator>
+</div>
+

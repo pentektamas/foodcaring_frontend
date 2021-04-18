@@ -9,9 +9,9 @@
   <mat-tab *ngIf="role == 'ADMIN'"
            label="Restaurant Responsibles" ><app-restaurant-responsible-table></app-restaurant-responsible-table></mat-tab>
   <mat-tab *ngIf="role == 'ADMIN'"
-           label="Disadvantaged Persons" > Here will be the ADMIN's page for working with Disadvantaged Persons' data</mat-tab>
+           label="Disadvantaged Persons" > <app-disadvantaged-people-table></app-disadvantaged-people-table></mat-tab>
   <mat-tab *ngIf="role == 'ADMIN'"
-           label="Priorities" > Here will be the ADMIN's page for setting priorities for Disadv. pers.</mat-tab>
+           label="Priorities" > <app-disadvantaged-persons-table-sorted></app-disadvantaged-persons-table-sorted></mat-tab>
   <mat-tab *ngIf="role == 'ADMIN'"
            label="Charts"> Here will be the ADMIN's page for the charts</mat-tab>
 
