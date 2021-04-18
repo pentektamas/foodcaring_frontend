@@ -41,6 +41,7 @@ import {ErrorModalComponent} from './components/modals/error-modal/error-modal.c
 import { DisadvantagedPeopleTableComponent } from './components/disadvantaged-persons/disadvantaged-persons-table/disadvantaged-persons-table.component';
 import { UpdatePriorityDisadvantagedPersonComponent } from './components/disadvantaged-persons/update-priority-disadvantaged-person/update-priority-disadvantaged-person.component';
 import { DisadvantagedPersonsTableSortedComponent } from './components/disadvantaged-persons/disadvantaged-persons-table-sorted/disadvantaged-persons-table-sorted.component';
+import { RestaurantResponsibleTableComponent } from './components/restaurant-responsible/restaurant-responsible-table/restaurant-responsible-table.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { DisadvantagedPersonsTableSortedComponent } from './components/disadvant
     UpdateMenuComponent,
     SuccessModalComponent,
     ErrorModalComponent,
+    RestaurantResponsibleTableComponent,
     DisadvantagedPeopleTableComponent,
     UpdatePriorityDisadvantagedPersonComponent,
     DisadvantagedPersonsTableSortedComponent

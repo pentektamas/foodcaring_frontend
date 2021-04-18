@@ -1,5 +1,6 @@
-<br><br><br><br>
+<div class="content"></div>
 <div align="center">
+  <br><br><br>
   <h1> Our Restaurant's Menus </h1>
   <span title="Create a new menu" class="material-icons add-menu" (click)="add()">add</span>
   <br>
@@ -47,4 +48,5 @@
 
 </table>
   <mat-paginator *ngIf="noRestaurants.length == 0" class='paginator-class' [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <br>
 </div>
