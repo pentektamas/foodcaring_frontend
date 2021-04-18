@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../../services/user.service';
 import {Router} from '@angular/router';
-import {Role} from '../../../models/enums/role.enum';
 import {MatTabGroup} from '@angular/material/tabs';
 
 @Component({
