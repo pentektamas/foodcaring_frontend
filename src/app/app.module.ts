@@ -38,6 +38,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { UpdateMenuComponent } from './components/menu/update-menu/update-menu.component';
 import {SuccessModalComponent} from "./components/modals/success-modal/success-modal.component";
 import {ErrorModalComponent} from "./components/modals/error-modal/error-modal.component";
+import { RestaurantResponsibleTableComponent } from './components/restaurant-responsible/restaurant-responsible-table/restaurant-responsible-table.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {ErrorModalComponent} from "./components/modals/error-modal/error-modal.c
     CreateMenuComponent,
     UpdateMenuComponent,
     SuccessModalComponent,
-    ErrorModalComponent
+    ErrorModalComponent,
+    RestaurantResponsibleTableComponent
   ],
   imports: [
     BrowserModule,

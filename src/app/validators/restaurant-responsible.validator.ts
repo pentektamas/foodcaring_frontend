@@ -129,7 +129,7 @@ export class RestaurantResponsibleValidator {
       Validators.minLength(10), Validators.maxLength(50)]);
     this.usernameForm = new FormControl(restaurantResponsible?.username, [Validators.required,
       Validators.minLength(5), Validators.maxLength(50)]);
-    this.passwordForm = new FormControl(restaurantResponsible?.password, [Validators.required,
+    this.passwordForm = new FormControl('', [Validators.required,
       Validators.minLength(8), Validators.maxLength(50)]);
     this.restaurantNameForm = new FormControl(restaurantResponsible?.restaurantName, [Validators.required,
       Validators.minLength(2), Validators.maxLength(50)]);

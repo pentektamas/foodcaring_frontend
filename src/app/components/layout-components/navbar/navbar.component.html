@@ -7,7 +7,7 @@
   </mat-tab>
 
   <mat-tab *ngIf="role == 'ADMIN'"
-           label="Restaurant Responsibles" > Here will be the ADMIN's page for working with Restaurant Responsibles' data</mat-tab>
+           label="Restaurant Responsibles" ><app-restaurant-responsible-table></app-restaurant-responsible-table></mat-tab>
   <mat-tab *ngIf="role == 'ADMIN'"
            label="Disadvantaged Persons" > Here will be the ADMIN's page for working with Disadvantaged Persons' data</mat-tab>
   <mat-tab *ngIf="role == 'ADMIN'"
