@@ -1,0 +1,45 @@
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstStep">
+    <ng-template matStepLabel>Choose a restaurant and a menu</ng-template>
+    <br>
+    <form class="form" [formGroup]="firstStep">
+      <mat-form-field appearance="fill" class="full-modal-input">
+        <mat-label>Choose a restaurant</mat-label>
+        <mat-select class="left-button" [formControl]="donationValidator.restaurantForm" (selectionChange)="getMenus()">
+          <mat-option *ngFor="let restaurant of restaurants" [value]="restaurant">{{restaurant.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <ng-template matStepLabel>Choose a menu</ng-template>
+      <mat-form-field appearance="fill" class="full-modal-input">
+        <mat-label>Choose a menu</mat-label>
+        <mat-select class="right-button" [formControl]="donationValidator.menuForm">
+          <mat-option *ngFor="let menu of menus" [value]="menu">{{menu.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button class="right-button" mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [formControl]="secondStep">
+    <form [formGroup]="secondStep">
+      //TODO add chips
+      <ng-template matStepLabel>Choose the disadvantaged person</ng-template>
+      <br>
+      <mat-form-field appearance="fill" class="full-modal-input">
+        <mat-label>Choose a disadvantaged person</mat-label>
+        <mat-select [formControl]="donationValidator.disadvantagedPersonForm">
+          <mat-option *ngFor="let disadvantagedPerson of disadvantagedPersons"
+                      [value]="disadvantagedPerson">{{disadvantagedPerson.firstName}} {{disadvantagedPerson.lastName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button class="random-button" mat-button (click)="getRandomDisadvantagedPerson()">Select a random disadvantaged
+        person
+      </button>
+      <br>
+      <button class="left-button" mat-button matStepperPrevious>Back</button>
+      <button class="right-button" mat-button *ngIf="donationValidator.isValid()" (click)="createDonation()">Donate</button>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

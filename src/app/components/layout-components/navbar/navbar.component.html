@@ -21,7 +21,7 @@
            label="Products" > Here will be the REST_RESP's page for working with Products' data</mat-tab>
 
   <mat-tab *ngIf="role == 'DONOR'"
-           label="Make a Donation" > Here will be the DONOR's page for making the donations</mat-tab>
+           label="Make a Donation" > <app-donations-table></app-donations-table></mat-tab>
 
 
   <mat-tab *ngIf="role == 'DISADVANTAGED_PERSON'"
