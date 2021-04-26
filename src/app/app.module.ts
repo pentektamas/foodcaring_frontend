@@ -42,6 +42,7 @@ import { DisadvantagedPeopleTableComponent } from './components/disadvantaged-pe
 import { UpdatePriorityDisadvantagedPersonComponent } from './components/disadvantaged-persons/update-priority-disadvantaged-person/update-priority-disadvantaged-person.component';
 import { DisadvantagedPersonsTableSortedComponent } from './components/disadvantaged-persons/disadvantaged-persons-table-sorted/disadvantaged-persons-table-sorted.component';
 import { RestaurantResponsibleTableComponent } from './components/restaurant-responsible/restaurant-responsible-table/restaurant-responsible-table.component';
+import { MenuItemTableComponent } from './components/menu/menu-item-table/menu-item-table.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { RestaurantResponsibleTableComponent } from './components/restaurant-res
     RestaurantResponsibleTableComponent,
     DisadvantagedPeopleTableComponent,
     UpdatePriorityDisadvantagedPersonComponent,
-    DisadvantagedPersonsTableSortedComponent
+    DisadvantagedPersonsTableSortedComponent,
+    MenuItemTableComponent
   ],
   imports: [
     BrowserModule,
