@@ -25,12 +25,14 @@
   <mat-step>
     <ng-template matStepLabel>Method of choosing disadvantaged person</ng-template>
     <br>
-    <button class="left-button" mat-button matStepperNext (click)="initNonRandom()">Manually</button>
-    <button class="right-button" mat-button matStepperNext (click)="initRandom()">Automatically</button>
+    <h1> How do you want to choose the disadvantaged persons? </h1>
+    <br>
+    <button class="left-button" mat-button matStepperNext (click)="initNonRandom()">Choose manually the disadvantaged persons</button>
+    <button class="right-button" mat-button matStepperNext (click)="initRandom()">Let the platform choose them automatically by priority</button>
   </mat-step>
-  <mat-step [stepControl]="secondStep">
-    <form [formGroup]="secondStep">
-      <ng-template matStepLabel>Choose the disadvantaged person</ng-template>
+  <mat-step [stepControl]="thirdStep">
+    <form [formGroup]="thirdStep">
+      <ng-template matStepLabel>Choose the disadvantaged persons</ng-template>
       <br>
       <mat-form-field class="example-chip-list full-input">
         <mat-label>Disadvantaged Persons</mat-label>

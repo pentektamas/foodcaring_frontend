@@ -6,7 +6,7 @@ import {RestaurantService} from '../../../services/restaurant.service';
 import {MenuService} from '../../../services/menu.service';
 import {DisadvantagedPersonService} from '../../../services/disadvantaged-person.service';
 import {Menu} from '../../../models/menu.model';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DisadvantagedPerson} from '../../../models/disadvantaged-person.model';
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {Observable} from 'rxjs';
@@ -25,6 +25,7 @@ export class CreateDonationComponent implements OnInit {
 
   public firstStep: FormGroup;
   public secondStep: FormGroup;
+  public thirdStep: FormGroup;
 
   public donationValidator: DonationValidator;
 
@@ -39,12 +40,14 @@ export class CreateDonationComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public restaurantService: RestaurantService, public menuService: MenuService, public disadvantagedPersonService: DisadvantagedPersonService) {
     this.donationValidator = new DonationValidator();
+    console.log(this.selectRandom);
     this.firstStep = new FormGroup({
         menuForm: this.donationValidator.menuForm,
         restaurantForm: this.donationValidator.restaurantForm
       }
     );
-    this.secondStep = new FormGroup({
+
+    this.thirdStep = new FormGroup({
         disadvantagedPersonForm: this.donationValidator.disadvantagedPersonForm
       }
     );
@@ -92,7 +95,15 @@ export class CreateDonationComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.selectedDisadvantagedPersons.push(event.option.value);
+    let found: boolean;
+    for (const disadvantagedPerson of this.selectedDisadvantagedPersons){
+      if (disadvantagedPerson.id === event.option.value.id){
+        found = true;
+      }
+    }
+    if (!found){
+      this.selectedDisadvantagedPersons.push(event.option.value);
+    }
     this.disadvantagedPersonsInput.nativeElement.value = '';
     this.donationValidator.disadvantagedPersonForm.setValue(null);
   }
