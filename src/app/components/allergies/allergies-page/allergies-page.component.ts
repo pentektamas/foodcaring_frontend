@@ -31,7 +31,6 @@ export class AllergiesPageComponent implements OnInit {
   ngOnInit(): void {
     this.disadvantagedPersonService.getByUsername(localStorage.getItem('username')).subscribe(
       (data) => {
-        console.log(data);
         this.disadvantagedPerson = data;
         if (this.disadvantagedPerson.allergies == undefined) {
           this.disadvantagedPerson.allergies = '';
@@ -77,8 +76,7 @@ export class AllergiesPageComponent implements OnInit {
 
   public updatePerson(): void {
     this.disadvantagedPerson.allergies = this.listToString(this.allergies);
-    console.log(this.disadvantagedPerson.allergies)
-    this.disadvantagedPersonService.update(this.disadvantagedPerson).subscribe(
+    this.disadvantagedPersonService.updateDisadvantagedPerson(this.disadvantagedPerson).subscribe(
       () => this.dialog.open(SuccessModalComponent, {data: 'The allergy list was updated'}).afterClosed().subscribe(
         () => this.ngOnInit()
       ),

@@ -28,7 +28,7 @@ export class ItemService {
   //   return this.http.put<Menu>(BASE_URL + '/menu', menu, REQUEST_HEADERS);
   // }
   //
-  // public delete(menuId: String): Observable<any> {
-  //   return this.http.delete<any>(BASE_URL + '/menu/' + menuId, REQUEST_HEADERS);
-  // }
+   public deleteItem(itemId: String): Observable<any> {
+     return this.http.delete<any>(BASE_URL + '/item/' + itemId, REQUEST_HEADERS);
+   }
 }

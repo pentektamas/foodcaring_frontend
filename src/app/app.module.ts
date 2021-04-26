@@ -43,6 +43,9 @@ import { UpdatePriorityDisadvantagedPersonComponent } from './components/disadva
 import { DisadvantagedPersonsTableSortedComponent } from './components/disadvantaged-persons/disadvantaged-persons-table-sorted/disadvantaged-persons-table-sorted.component';
 import { RestaurantResponsibleTableComponent } from './components/restaurant-responsible/restaurant-responsible-table/restaurant-responsible-table.component';
 import { AllergiesPageComponent } from './components/allergies/allergies-page/allergies-page.component';
+import { MenuItemTableComponent } from './components/menu/menu-item-table/menu-item-table.component';
+import { UpdateDisadvantagedPersonComponent } from './components/disadvantaged-persons/update-disadvantaged-person/update-disadvantaged-person.component';
+import { CreateDisadvantagedPersonComponent } from './components/disadvantaged-persons/create-disadvantaged-person/create-disadvantaged-person.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +67,10 @@ import { AllergiesPageComponent } from './components/allergies/allergies-page/al
     DisadvantagedPeopleTableComponent,
     UpdatePriorityDisadvantagedPersonComponent,
     DisadvantagedPersonsTableSortedComponent,
+    MenuItemTableComponent,
+    UpdateDisadvantagedPersonComponent,
+    CreateDisadvantagedPersonComponent,
+    DisadvantagedPersonsTableSortedComponent,
     AllergiesPageComponent
   ],
   imports: [
@@ -81,12 +88,10 @@ import { AllergiesPageComponent } from './components/allergies/allergies-page/al
     MatMenuModule,
     MatIconModule,
     MatDialogModule,
-    MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule,
     MatChipsModule,
     MatAutocompleteModule,
     RouterModule.forRoot(routes)
