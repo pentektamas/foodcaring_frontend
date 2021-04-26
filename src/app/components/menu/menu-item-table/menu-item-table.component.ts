@@ -42,7 +42,7 @@ export class MenuItemTableComponent implements OnInit {
         this.dataSource = new MatTableDataSource<Item>(this.items);
         this.dataSource.paginator = this.paginator;
       },
-      () => this.noRestaurants = 'It seems like this restaurant has no menus... Add some!'
+      () => this.noRestaurants = 'It seems like this restaurant has no items... Add some!'
     );
   }
 
