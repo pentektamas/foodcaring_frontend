@@ -41,7 +41,7 @@ export class DisadvantagedPeopleTableComponent implements OnInit {
         this.obs = this.dataSource.connect();
         this.noDisadvantagedPersons = '';
       },
-      () => this.noDisadvantagedPersons = 'It seems like this restaurant has no menus... Add some!'
+      () => this.noDisadvantagedPersons = 'It seems like there are no disadvantaged persons...'
     );
   }
 

@@ -1,0 +1,34 @@
+<div class="content"></div>
+<div align="center">
+  <br><br><br>
+  <mat-card class="top-card">
+    <h1> Allergies </h1>
+    <span *ngIf="!open" title="Add a new allergy" class="material-icons add-menu" (click)="toggleAdd()">add</span>
+    <span *ngIf="open" title="Hide" class="material-icons add-menu" (click)="toggleAdd()">expand_less</span>
+    <div *ngIf="open" class="normal-field">
+      <mat-form-field class="modal-input" appearance="legacy">
+    <mat-label>New allergy</mat-label>
+    <input matInput required placeholder="Peanuts" [formControl]="allergyForm">
+    <mat-error *ngIf="allergyForm.invalid">
+      Value is required
+    </mat-error>
+    </mat-form-field>
+      <mat-button-toggle (click)="add(allergyForm.value)">Add</mat-button-toggle>
+    </div>
+  </mat-card>
+
+
+  <br>
+  <h1>{{noAllergies}}</h1>
+  <br><br><br><br>
+    <div *ngFor="let allergy of allergies; let index" class="users">
+      <mat-card>
+        <h1>{{allergy}} </h1>
+        &nbsp;
+        <span title="Delete allergy" class="material-icons add-menu" (click)="delete(index)">delete</span>
+
+      </mat-card>
+
+    </div>
+    <br>
+</div>
