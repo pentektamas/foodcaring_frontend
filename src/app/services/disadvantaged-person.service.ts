@@ -23,4 +23,16 @@ export class DisadvantagedPersonService {
   public updatePriorityOfDisadvantagedPerson(disadvantagedPersonID: String, priority: number): Observable<DisadvantagedPerson[]> {
     return this.http.put<DisadvantagedPerson[]>(BASE_URL + '/disadvantagedPerson/priority/' + disadvantagedPersonID + '/' + priority, REQUEST_HEADERS);
   }
+
+  public updateDisadvantagedPerson(disadvantagedPerson: DisadvantagedPerson): Observable<DisadvantagedPerson> {
+    return this.http.put<DisadvantagedPerson>(BASE_URL + '/disadvantagedPerson',disadvantagedPerson, REQUEST_HEADERS);
+  }
+
+  public deleteDisadvantagedPerson( disadvantagedPersonID: String): Observable<any> {
+    return this.http.delete<any>(BASE_URL + '/disadvantagedPerson/' + disadvantagedPersonID, REQUEST_HEADERS);
+  }
+
+  public createDisadvantagedPerson(disadvantagedPerson: DisadvantagedPerson): Observable<any> {
+    return this.http.post<any>(BASE_URL + '/disadvantagedPerson',disadvantagedPerson, REQUEST_HEADERS);
+  }
 }
