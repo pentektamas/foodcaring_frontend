@@ -20,7 +20,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegisterPageComponent} from './components/register-page/register-page.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MenuTableComponent} from './components/menu/menu-table/menu-table.component';
@@ -42,7 +42,8 @@ import {DisadvantagedPersonsTableSortedComponent} from './components/disadvantag
 import {RestaurantResponsibleTableComponent} from './components/restaurant-responsible/restaurant-responsible-table/restaurant-responsible-table.component';
 import {CreateDonationComponent} from './components/donor/create-donation/create-donation.component';
 import {MatStepperModule} from '@angular/material/stepper';
-import {DonationsTableComponent} from './components/donor/donations-table/donations-table.component'
+import {DonationsTableComponent} from './components/donor/donations-table/donations-table.component';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -84,13 +85,15 @@ import {DonationsTableComponent} from './components/donor/donations-table/donati
     MatDialogModule,
     MatInputModule,
     MatSelectModule,
-    ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
     MatChipsModule,
     MatAutocompleteModule,
     MatStepperModule,
+    MatSliderModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [{

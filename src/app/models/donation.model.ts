@@ -6,5 +6,5 @@ export class Donation{
   id: String;
   menu: Menu;
   restaurant: Restaurant;
-  disadvantagedPerson: DisadvantagedPerson;
+  disadvantagedPersons: DisadvantagedPerson[] = [];
 }

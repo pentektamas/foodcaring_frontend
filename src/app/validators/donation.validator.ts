@@ -18,7 +18,7 @@ export class DonationValidator {
     const donation: Donation = new Donation();
     donation.menu = this.menuForm.value as Menu;
     donation.restaurant = this.restaurantForm.value as Restaurant;
-    donation.disadvantagedPerson = this.disadvantagedPersonForm.value as DisadvantagedPerson;
+    donation.disadvantagedPersons = this.disadvantagedPersonForm.value as DisadvantagedPerson[];
     return donation;
   }
 
@@ -28,7 +28,7 @@ export class DonationValidator {
     donation.id = id;
     donation.menu = this.menuForm.value;
     donation.restaurant = this.restaurantForm.value;
-    donation.disadvantagedPerson = this.disadvantagedPersonForm.value;
+    donation.disadvantagedPersons = this.disadvantagedPersonForm.value as DisadvantagedPerson[];
     return donation;
   }
 
@@ -51,12 +51,12 @@ export class DonationValidator {
   }
 
   public isValid(): boolean {
-    return !this.menuForm.errors && !this.disadvantagedPersonForm.errors && !this.restaurantForm.errors;
+    return !this.menuForm.errors && !this.restaurantForm.errors;
   }
 
   public init(donation: Donation): void {
     this.menuForm = new FormControl(donation?.menu, [Validators.required]);
     this.restaurantForm = new FormControl(donation?.restaurant, [Validators.required]);
-    this.disadvantagedPersonForm = new FormControl(donation?.disadvantagedPerson, [Validators.required]);
+    this.disadvantagedPersonForm = new FormControl(donation?.disadvantagedPersons, [Validators.required]);
   }
 }
