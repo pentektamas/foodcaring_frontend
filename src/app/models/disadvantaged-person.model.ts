@@ -7,4 +7,5 @@ export class DisadvantagedPerson{
   public username: String;
   public password: String;
   public priority: number;
+  public allergies: String;
 }
