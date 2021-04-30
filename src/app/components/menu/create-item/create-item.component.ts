@@ -45,10 +45,10 @@ export class CreateItemComponent implements OnInit {
     this.itemService.create(product).subscribe(
       () => {
         this.dialog.closeAll();
-        this.dialog.open(SuccessModalComponent, {data: `The menu was created!`});
+        this.dialog.open(SuccessModalComponent, {data: `The item was created!`});
       }
       , () => {
-        this.dialog.open(ErrorModalComponent, {data: `The menu could not be created!`});
+        this.dialog.open(ErrorModalComponent, {data: `The item could not be created!`});
       });
 
   }
