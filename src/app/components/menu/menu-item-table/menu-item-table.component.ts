@@ -14,6 +14,7 @@ import {UpdateMenuComponent} from '../update-menu/update-menu.component';
 import {SuccessModalComponent} from "../../modals/success-modal/success-modal.component";
 import {ErrorModalComponent} from "../../modals/error-modal/error-modal.component";
 import { ItemService } from 'src/app/services/item.service';
+import { CreateItemComponent } from '../create-item/create-item.component';
 
 @Component({
   selector: 'app-menu-item-table',
@@ -51,6 +52,9 @@ export class MenuItemTableComponent implements OnInit {
   }
 
   public add(): void {
+    this.dialog.open(CreateItemComponent).afterClosed().subscribe(
+      () => this.ngOnInit()
+    );
   }
 
   public delete($event: MouseEvent, id:any): void {

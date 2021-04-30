@@ -1,0 +1,40 @@
+<div class="modal-title"> Please fill in the following fields in order to add a item:</div>
+<div class="modal-content">
+    <form  [formGroup]="addForm" (ngSubmit)="addItem(addForm.value)">
+        <mat-form-field class="modal-input" appearance="legacy">
+            <mat-label>Name</mat-label>
+            <input matInput required placeholder="Name" type="text" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="modal-input" appearance="legacy">
+            <mat-label>Description</mat-label>
+            <input matInput required placeholder="Description" type="text" formControlName="description">
+        </mat-form-field>
+
+        <mat-form-field class="modal-input" appearance="legacy">
+            <mat-label>Price</mat-label>
+            <input matInput required placeholder="Price" type="number" formControlName="price">
+        </mat-form-field>
+
+        
+        <div class="form-group">
+            <label  class="col-sm-3 control-label">Photo</label>
+            <input type="file" class="custom-file-input form-control button-file" name="files" id="files" multiple
+                (change)="detectFiles($event)" accept="image/x-png,image/jpeg"> 
+        </div>
+        <div class="images-preview" *ngIf="imageSrc">
+            <div class="row ">
+                    <div class="card col-md-4 " >
+                         <img [src]="imageSrc" class="card-img-top" > 
+                    </div>
+            </div>
+        </div>
+
+        <div mat-dialog-actions align="center">
+            <button  type="submit" class="modal-button" mat-button >Add Item</button>
+            <button class="modal-button" mat-button mat-dialog-close>Close</button>
+          </div>
+    </form>
+
+  <br>
+</div>
