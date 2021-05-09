@@ -11,6 +11,9 @@ import {DisadvantagedPerson} from '../../../models/disadvantaged-person.model';
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {DonationService} from "../../../services/donation.service";
+import {SuccessModalComponent} from "../../modals/success-modal/success-modal.component";
+import {ErrorModalComponent} from "../../modals/error-modal/error-modal.component";
 
 @Component({
   selector: 'app-create-donation',
@@ -38,9 +41,9 @@ export class CreateDonationComponent implements OnInit {
   @ViewChild('disadvantagedPersonsInput') disadvantagedPersonsInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-  constructor(public dialog: MatDialog, public restaurantService: RestaurantService, public menuService: MenuService, public disadvantagedPersonService: DisadvantagedPersonService) {
+  constructor(public dialog: MatDialog, public restaurantService: RestaurantService, public menuService: MenuService,
+              public disadvantagedPersonService: DisadvantagedPersonService, public donationService: DonationService) {
     this.donationValidator = new DonationValidator();
-    console.log(this.selectRandom);
     this.firstStep = new FormGroup({
         menuForm: this.donationValidator.menuForm,
         restaurantForm: this.donationValidator.restaurantForm
@@ -77,7 +80,14 @@ export class CreateDonationComponent implements OnInit {
   createDonation(): void {
     const donation = this.donationValidator.getDonation();
     donation.disadvantagedPersons = this.selectedDisadvantagedPersons;
-    console.log(donation);
+    this.donationService.createDonation(donation).subscribe(
+      () => {
+        this.dialog.closeAll();
+        this.dialog.open(SuccessModalComponent, {data: `The donation was sent!`});
+      }
+      , () => {
+        this.dialog.open(ErrorModalComponent, {data: `The donation could not be sent!`});
+      });
   }
 
   getRandomDisadvantagedPerson(): void {
