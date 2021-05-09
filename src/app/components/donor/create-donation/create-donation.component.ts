@@ -6,14 +6,14 @@ import {RestaurantService} from '../../../services/restaurant.service';
 import {MenuService} from '../../../services/menu.service';
 import {DisadvantagedPersonService} from '../../../services/disadvantaged-person.service';
 import {Menu} from '../../../models/menu.model';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 import {DisadvantagedPerson} from '../../../models/disadvantaged-person.model';
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {DonationService} from "../../../services/donation.service";
-import {SuccessModalComponent} from "../../modals/success-modal/success-modal.component";
-import {ErrorModalComponent} from "../../modals/error-modal/error-modal.component";
+import {DonationService} from '../../../services/donation.service';
+import {SuccessModalComponent} from '../../modals/success-modal/success-modal.component';
+import {ErrorModalComponent} from '../../modals/error-modal/error-modal.component';
 
 @Component({
   selector: 'app-create-donation',
@@ -32,7 +32,7 @@ export class CreateDonationComponent implements OnInit {
 
   public donationValidator: DonationValidator;
 
-  public  filteredDisadvantagedPersons: Observable<DisadvantagedPerson[]>;
+  public filteredDisadvantagedPersons: Observable<DisadvantagedPerson[]>;
   public selectedDisadvantagedPersons: DisadvantagedPerson[] = [];
 
   public numberOfPersons = 0;
@@ -106,12 +106,12 @@ export class CreateDonationComponent implements OnInit {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     let found: boolean;
-    for (const disadvantagedPerson of this.selectedDisadvantagedPersons){
-      if (disadvantagedPerson.id === event.option.value.id){
+    for (const disadvantagedPerson of this.selectedDisadvantagedPersons) {
+      if (disadvantagedPerson.id === event.option.value.id) {
         found = true;
       }
     }
-    if (!found){
+    if (!found) {
       this.selectedDisadvantagedPersons.push(event.option.value);
     }
     this.disadvantagedPersonsInput.nativeElement.value = '';
@@ -119,7 +119,7 @@ export class CreateDonationComponent implements OnInit {
   }
 
   private filterDisadvantagedPersons(value: string): DisadvantagedPerson[] {
-    if (value !== null){
+    if (value !== null) {
       const filterValue = value.toLowerCase();
       return this.disadvantagedPersons.filter(disadvantagedPerson =>
         (disadvantagedPerson.firstName + ' ' + disadvantagedPerson.lastName).toLowerCase().indexOf(filterValue) === 0);
@@ -127,12 +127,12 @@ export class CreateDonationComponent implements OnInit {
     return this.disadvantagedPersons;
   }
 
-  initNonRandom(): void{
+  initNonRandom(): void {
     this.selectedDisadvantagedPersons = [];
     this.selectRandom = false;
   }
 
-  initRandom(): void{
+  initRandom(): void {
     this.selectedDisadvantagedPersons = [];
     this.selectRandom = true;
   }

@@ -27,8 +27,12 @@
     <br>
     <h1> How do you want to choose the disadvantaged persons? </h1>
     <br>
-    <button class="left-button" mat-button matStepperNext (click)="initNonRandom()">Choose manually the disadvantaged persons</button>
-    <button class="right-button" mat-button matStepperNext (click)="initRandom()">Let the platform choose them automatically by priority</button>
+    <button class="left-button" mat-button matStepperNext (click)="initNonRandom()">Choose manually the disadvantaged
+      persons
+    </button>
+    <button class="right-button" mat-button matStepperNext (click)="initRandom()">Let the platform choose them
+      automatically by priority
+    </button>
   </mat-step>
   <mat-step [stepControl]="thirdStep">
     <form [formGroup]="thirdStep">
@@ -54,31 +58,35 @@
             [matAutocomplete]="auto"
             [matChipInputFor]="chipList">
         </mat-chip-list>
-        <div *ngIf="selectRandom && selectedDisadvantagedPersons.length === 0"><br><br> </div>
+        <div *ngIf="selectRandom && selectedDisadvantagedPersons.length === 0"><br><br></div>
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option *ngFor="let disadvantagedPerson of filteredDisadvantagedPersons | async" [value]="disadvantagedPerson">
+          <mat-option *ngFor="let disadvantagedPerson of filteredDisadvantagedPersons | async"
+                      [value]="disadvantagedPerson">
             {{disadvantagedPerson.firstName}} {{disadvantagedPerson.lastName}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
       <br>
     </form>
-      <mat-slider *ngIf="selectRandom"
-        class="example-margin full-input"
-        [max]="100"
-        [min]="0"
-        [step]="1"
-        [thumbLabel]="true"
-        [(ngModel)]="numberOfPersons"
-        aria-labelledby="example-name-label">
-      </mat-slider>
-      <br>
-      <button *ngIf="selectRandom" class="full-input" mat-button (click)="getRandomDisadvantagedPerson()">
-        Select a random disadvantaged person
-      </button>
-      <br>
-      <button class="left-button" mat-button matStepperPrevious>Back</button>
-      <button class="right-button" mat-button *ngIf="donationValidator.isValid() && this.selectedDisadvantagedPersons.length > 0" (click)="createDonation()">Donate</button>
+    <mat-slider *ngIf="selectRandom"
+                class="example-margin full-input"
+                [max]="100"
+                [min]="0"
+                [step]="1"
+                [thumbLabel]="true"
+                [(ngModel)]="numberOfPersons"
+                aria-labelledby="example-name-label">
+    </mat-slider>
+    <br>
+    <button *ngIf="selectRandom" class="full-input" mat-button (click)="getRandomDisadvantagedPerson()">
+      Select a random disadvantaged person
+    </button>
+    <br>
+    <button class="left-button" mat-button matStepperPrevious>Back</button>
+    <button class="right-button" mat-button
+            *ngIf="donationValidator.isValid() && this.selectedDisadvantagedPersons.length > 0"
+            (click)="createDonation()">Donate
+    </button>
 
   </mat-step>
 </mat-horizontal-stepper>
