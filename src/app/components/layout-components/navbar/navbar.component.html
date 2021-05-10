@@ -13,7 +13,7 @@
   <mat-tab *ngIf="role == 'ADMIN'"
            label="Priorities" > <app-disadvantaged-persons-table-sorted></app-disadvantaged-persons-table-sorted></mat-tab>
   <mat-tab *ngIf="role == 'ADMIN'"
-           label="Charts"> Here will be the ADMIN's page for the charts</mat-tab>
+           label="Charts"> <app-donations-chart></app-donations-chart></mat-tab>
 
   <mat-tab *ngIf="role == 'RESTAURANT_RESPONSIBLE'"
            label="Menus" > <app-menu-table></app-menu-table></mat-tab>

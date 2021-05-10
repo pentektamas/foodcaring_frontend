@@ -1,0 +1,6 @@
+import {DisadvantagedPerson} from "./disadvantaged-person.model";
+
+export class ChartEntry{
+  disadvantagedPerson: DisadvantagedPerson;
+  timesHelped: number;
+}
