@@ -37,6 +37,7 @@ export class CreateDonationComponent implements OnInit {
 
   public numberOfPersons = 0;
   public selectRandom: boolean;
+  public total = 0;
 
   @ViewChild('disadvantagedPersonsInput') disadvantagedPersonsInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
@@ -70,11 +71,18 @@ export class CreateDonationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.total = 0;
   }
 
   getMenus(): void {
     this.menus = this.donationValidator.restaurantForm.value.menus;
+    for (const menu of this.menus){
+      menu.price = 0;
+      for (const item of menu.itemList){
+        menu.price += item.price;
+      }
+      menu.price = Math.round(( menu.price + Number.EPSILON) * 100) / 100;
+    }
   }
 
   createDonation(): void {
@@ -92,7 +100,10 @@ export class CreateDonationComponent implements OnInit {
 
   getRandomDisadvantagedPerson(): void {
     this.disadvantagedPersonService.getUnHelpedDisadvantagedPersons(this.numberOfPersons).subscribe(
-      (data) => this.selectedDisadvantagedPersons = data
+      (data) => {
+        this.selectedDisadvantagedPersons = data;
+        this.total = data.length * this.donationValidator.menuForm.value.price;
+      }
     );
   }
 
@@ -101,6 +112,7 @@ export class CreateDonationComponent implements OnInit {
 
     if (index >= 0) {
       this.selectedDisadvantagedPersons.splice(index, 1);
+      this.total -= this.donationValidator.menuForm.value.price;
     }
   }
 
@@ -113,6 +125,7 @@ export class CreateDonationComponent implements OnInit {
     }
     if (!found) {
       this.selectedDisadvantagedPersons.push(event.option.value);
+      this.total += this.donationValidator.menuForm.value.price;
     }
     this.disadvantagedPersonsInput.nativeElement.value = '';
     this.donationValidator.disadvantagedPersonForm.setValue(null);
@@ -128,11 +141,13 @@ export class CreateDonationComponent implements OnInit {
   }
 
   initNonRandom(): void {
+    this.total = 0;
     this.selectedDisadvantagedPersons = [];
     this.selectRandom = false;
   }
 
   initRandom(): void {
+    this.total = 0;
     this.selectedDisadvantagedPersons = [];
     this.selectRandom = true;
   }
