@@ -1,12 +1,14 @@
 <br><br><br><br>
-<div align="center"><p>donations-chart works!</p>
-  <ejs-chart id="chart-container" class="chart" [primaryXAxis]="primaryXAxis" [title]="title" [legendSettings]="legendSettings" [tooltip]="tooltip">
+<div align="center" *ngIf="disadvantagedPersons">
+  <h1> Statistics about how people were helped </h1>
+  <ejs-chart id="chart-container" class="chart" [primaryXAxis]="primaryXAxis" [title]="title" [legendSettings]="legendSettings"
+             [tooltip]="tooltip" [palettes]='["rgb(216, 233, 245)", "midnightblue"]'>
     <e-series-collection>
-      <e-series [dataSource]="chartData" type="Column" xName="day" yName="numberOfPatients"
-                name="Appointments"  [marker]="columnMarker">
+      <e-series [dataSource]="chartData" type="Column" xName="disadvantagedPerson" yName="timesHelped"
+                name="Donations"  [marker]="columnMarker">
       </e-series>
-      <e-series [dataSource]="chartData" type="Line"  xName="day" yName="numberOfPatients"
-                name="Appointments"  [marker]="lineMarker">
+      <e-series [dataSource]="chartData" type="Line"  xName="disadvantagedPerson" yName="timesHelped"
+                name="Donations"  [marker]="lineMarker">
       </e-series>
     </e-series-collection>
   </ejs-chart>

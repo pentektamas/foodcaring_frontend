@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ChartEntry} from '../../models/chart-entry';
 import {DisadvantagedPersonService} from '../../services/disadvantaged-person.service';
+import {ChartEntry} from '../../models/chart-entry';
 
 @Component({
   selector: 'app-donations-chart',
@@ -12,14 +12,12 @@ export class DonationsChartComponent implements OnInit {
   language: string;
   public chartData: any [];
   public primaryXAxis: any;
-  public dates: any [] = [];
   public chartEntries: ChartEntry[] = [];
   public title: any;
   public legendSettings: any;
   public lineMarker: any;
   public columnMarker: any;
   public tooltip: any;
-  appointments = new Map();
   render = false;
 
   disadvantagedPersons = [];
@@ -29,17 +27,19 @@ export class DonationsChartComponent implements OnInit {
       (data) => {
         this.disadvantagedPersons = data;
         this.render = true;
+        for (const disadvantagedPerson of this.disadvantagedPersons){
+          const chartEntry = new ChartEntry();
+          chartEntry.disadvantagedPerson = disadvantagedPerson.firstName + ' ' + disadvantagedPerson.lastName;
+          chartEntry.timesHelped = Math.floor(Math.random() * 3);
+          // chartEntry.timesHelped = disadvantagedPerson.timesHelped;
+          this.chartEntries.push(chartEntry);
+        }
+        this.chartData = this.chartEntries;
       }
     );
   }
 
   ngOnInit(): void {
-    for (const disadvantagedPerson of this.disadvantagedPersons){
-      const chartEntry = new ChartEntry();
-      chartEntry.disadvantagedPerson = disadvantagedPerson;
-      chartEntry.timesHelped = 1;
-      this.chartData.push(chartEntry);
-    }
     this.primaryXAxis = { valueType: 'Category' };
     this.legendSettings = {visible : true};
     this.columnMarker = { dataLabel : { visible : true, position: 'Top'}};
