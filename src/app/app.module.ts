@@ -47,6 +47,7 @@ import { MenuItemTableComponent } from './components/menu/menu-item-table/menu-i
 import { UpdateDisadvantagedPersonComponent } from './components/disadvantaged-persons/update-disadvantaged-person/update-disadvantaged-person.component';
 import { CreateDisadvantagedPersonComponent } from './components/disadvantaged-persons/create-disadvantaged-person/create-disadvantaged-person.component';
 import { CreateItemComponent } from './components/menu/create-item/create-item.component';
+import { UpdateItemComponent } from './components/menu/update-item/update-item.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { CreateItemComponent } from './components/menu/create-item/create-item.c
     CreateDisadvantagedPersonComponent,
     DisadvantagedPersonsTableSortedComponent,
     AllergiesPageComponent,
-    CreateItemComponent
+    CreateItemComponent,
+    UpdateItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,15 @@
 
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {Menu} from '../../../models/menu.model';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Item} from '../../../models/item.model';
-import {IMG1, IMG2} from '../../../utils/image-samples.utils';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
-import {MenuService} from '../../../services/menu.service';
-import {RestaurantService} from '../../../services/restaurant.service';
 import {Restaurant} from '../../../models/restaurant.model';
-import {CreateMenuComponent} from '../create-menu/create-menu.component';
-import {UpdateMenuComponent} from '../update-menu/update-menu.component';
 import {SuccessModalComponent} from "../../modals/success-modal/success-modal.component";
 import {ErrorModalComponent} from "../../modals/error-modal/error-modal.component";
 import { ItemService } from 'src/app/services/item.service';
 import { CreateItemComponent } from '../create-item/create-item.component';
+import { UpdateItemComponent } from '../update-item/update-item.component';
 
 @Component({
   selector: 'app-menu-item-table',
@@ -49,6 +44,13 @@ export class MenuItemTableComponent implements OnInit {
 
   ngAfterViewInit(): void {
 
+  }
+
+  
+  public edit($event: MouseEvent, item: Item): void {
+    this.dialog.open(UpdateItemComponent, {data: item}).afterClosed().subscribe(
+      () => this.ngOnInit()
+    );
   }
 
   public add(): void {
