@@ -48,10 +48,10 @@ export class UpdateItemComponent implements OnInit {
     this.itemService.create(product).subscribe(
       () => {
         this.dialog.closeAll();
-        this.dialog.open(SuccessModalComponent, {data: `The item was created!`});
+        this.dialog.open(SuccessModalComponent, {data:`The item was created!`});
       }
       , () => {
-        this.dialog.open(ErrorModalComponent, {data: `The item could not be created!`});
+        this.dialog.open(ErrorModalComponent, {data:`The item could not be created!`});
       });
 
   }
