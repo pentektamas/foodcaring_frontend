@@ -16,6 +16,10 @@ export class MenuService {
     return this.http.get<Menu[]>(BASE_URL + '/menu/restaurant/' + restaurantId, REQUEST_HEADERS);
   }
 
+  public getAllNoRestaurant(): Observable<Menu[]> {
+    return this.http.get<Menu[]>(BASE_URL + '/menu', REQUEST_HEADERS);
+  }
+
   public getById(menuId: String): Observable<Menu> {
     return this.http.get<Menu>(BASE_URL + '/menu/' + menuId, REQUEST_HEADERS);
   }

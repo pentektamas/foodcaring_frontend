@@ -1,12 +1,11 @@
 mat-card {
-  background: rgb(216, 233, 245);
+  background: linear-gradient(90deg, lightgreen, lightblue);
   min-height: 20px;
   width: 390px;
   display: inline-block;
   margin: 10px;
   user-select: none;
   font-size: 30px;
-  color: midnightblue;
   font-family: "Roboto", serif;
 }
 
@@ -59,19 +58,17 @@ mat-card {
 }
 h1 {
   display: inline-block;
-  background: linear-gradient(90deg, red, midnightblue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: darkgreen;
   padding-top: 10px;
 }
 .material-icons {
-  color: midnightblue;
+  color: antiquewhite;
   cursor: pointer;
 }
 
 .material-icons.add-menu {
   display: inline-block;
-  color: midnightblue;
+  color: darkgreen;
   font-size: 30px;
   vertical-align: middle;
   cursor: pointer;
@@ -105,6 +102,6 @@ h1 {
 }
 
 .mat-button-toggle {
-  background: midnightblue;
+  background: darkgreen;
   color: white;
 }

@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {BASE_URL, REQUEST_HEADERS} from '../utils/http-constants';
 import {Observable} from 'rxjs';
 import {DisadvantagedPerson} from '../models/disadvantaged-person.model';
+import {Menu} from '../models/menu.model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,18 @@ export class DisadvantagedPersonService {
   }
 
   public createDisadvantagedPerson(disadvantagedPerson: DisadvantagedPerson): Observable<any> {
-    return this.http.post<any>(BASE_URL + '/disadvantagedPerson',disadvantagedPerson, REQUEST_HEADERS);
+    return this.http.post<any>(BASE_URL + '/disadvantagedPerson', disadvantagedPerson, REQUEST_HEADERS);
+  }
+
+  public addWishlistItem(menu: Menu, username: String): Observable<Menu[]> {
+    return this.http.put<Menu[]>(BASE_URL + '/disadvantagedPerson/wishlist/append/' + username, menu, REQUEST_HEADERS);
+  }
+
+  public removeWishlistItem(menu: Menu, username: String): Observable<Menu[]> {
+    return this.http.put<Menu[]>(BASE_URL + '/disadvantagedPerson/wishlist/remove/' + username, menu, REQUEST_HEADERS);
+  }
+
+  public getWishlist(username: String): Observable<Menu[]> {
+    return this.http.get<Menu[]>(BASE_URL + '/disadvantagedPerson/wishlist/' + username, REQUEST_HEADERS);
   }
 }
