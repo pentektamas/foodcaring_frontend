@@ -46,6 +46,7 @@ import { AllergiesPageComponent } from './components/allergies/allergies-page/al
 import { MenuItemTableComponent } from './components/menu/menu-item-table/menu-item-table.component';
 import { UpdateDisadvantagedPersonComponent } from './components/disadvantaged-persons/update-disadvantaged-person/update-disadvantaged-person.component';
 import { CreateDisadvantagedPersonComponent } from './components/disadvantaged-persons/create-disadvantaged-person/create-disadvantaged-person.component';
+import { WishlistTableComponent } from './components/wishlist/wishlist-table/wishlist-table.component';
 import { CreateItemComponent } from './components/menu/create-item/create-item.component';
 
 @NgModule({
@@ -73,6 +74,7 @@ import { CreateItemComponent } from './components/menu/create-item/create-item.c
     CreateDisadvantagedPersonComponent,
     DisadvantagedPersonsTableSortedComponent,
     AllergiesPageComponent,
+    WishlistTableComponent,
     CreateItemComponent
   ],
   imports: [
