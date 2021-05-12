@@ -49,6 +49,7 @@ import { CreateDisadvantagedPersonComponent } from './components/disadvantaged-p
 import { CreateItemComponent } from './components/menu/create-item/create-item.component';
 import { UpdateItemComponent } from './components/menu/update-item/update-item.component';
 import { WishlistTableComponent } from './components/wishlist/wishlist-table/wishlist-table.component';
+import { WeeklyMenuTableComponent } from './components/menu/weekly-menu-table/weekly-menu-table.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { WishlistTableComponent } from './components/wishlist/wishlist-table/wis
     AllergiesPageComponent,
     CreateItemComponent,
     WishlistTableComponent,
-    UpdateItemComponent
+    UpdateItemComponent,
+    WeeklyMenuTableComponent
   ],
   imports: [
     BrowserModule,
