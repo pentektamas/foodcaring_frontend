@@ -1,0 +1,66 @@
+<div class="content"></div>
+<div align="center">
+  <br><br><br>
+  <h1> Our Restaurant's Weekly Menus </h1>
+  <span title="Create a new menu" class="material-icons add-menu" (click)="add()">add</span>
+  <br>
+  <h1>{{noRestaurants}}</h1>
+<table *ngIf="noRestaurants.length == 0" mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> <b>{{element.name}}</b> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="itemList">
+    <th mat-header-cell *matHeaderCellDef> Weekly menu items </th>
+    <td mat-cell *matCellDef="let element">
+      <br>
+      <div *ngFor="let item of element.itemList" class="menu-item">
+        <div class="row">
+          <div class="image-part">
+            <img class="item-image" src="{{item.image}}" alt="Poza item"/>
+          </div>
+          <div class="details-part">
+            <mat-label><b>{{item.name}}</b></mat-label>
+          <br>
+            <mat-label><i>{{item.description}}</i></mat-label>
+          <br>
+          <mat-label>{{item.price}} <b>RON</b></mat-label>
+          <br>
+          </div>
+        </div>
+      </div>
+      <br>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="startDate">
+    <th mat-header-cell *matHeaderCellDef> Start date </th>
+    <td mat-cell *matCellDef="let element"> <b>{{element.startDate|date:'MM/dd/yyyy  h:mma'}}</b> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="endDate">
+    <th mat-header-cell *matHeaderCellDef> End date </th>
+    <td mat-cell *matCellDef="let element"> <b>{{element.endDate|date:'MM/dd/yyyy  h:mma'}}</b> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="discountPercent">
+    <th mat-header-cell *matHeaderCellDef> Discount percent </th>
+    <td mat-cell *matCellDef="let element"> <b>{{element.discountPercent}}</b> </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="options">
+    <th mat-header-cell *matHeaderCellDef> Options </th>
+    <td mat-cell *matCellDef="let element">
+      <span title="Delete the weekly menu" (click)="delete($event, element.id)" class="material-icons message-icon">delete</span>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+
+
+</table>
+  <mat-paginator *ngIf="noRestaurants.length == 0" class='paginator-class' [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <br>
+</div>
