@@ -1,13 +1,11 @@
 
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {Item} from '../../../models/item.model';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog} from '@angular/material/dialog';
 import {Restaurant} from '../../../models/restaurant.model';
 import {SuccessModalComponent} from "../../modals/success-modal/success-modal.component";
 import {ErrorModalComponent} from "../../modals/error-modal/error-modal.component";
-import { ItemService } from 'src/app/services/item.service';
 import { CreateItemComponent } from '../create-item/create-item.component';
 import { WeeklyMenu } from 'src/app/models/weeklyMenu.model';
 import { WeeklyMenuService } from 'src/app/services/weeklyMenu.service';
@@ -39,7 +37,7 @@ export class WeeklyMenuTableComponent implements OnInit {
         this.weeklyMenu = item;
         this.dataSource = new MatTableDataSource<WeeklyMenu>(this.weeklyMenu);
       },
-      () => this.noRestaurants = 'It seems like this restaurant has no weeklyMenu... Add some!'
+      () => this.noRestaurants = 'It seems like this restaurant has no weekly menus... Add some!'
     );
   }
 
