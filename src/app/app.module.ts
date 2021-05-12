@@ -77,7 +77,9 @@ import { WeeklyMenuTableComponent } from './components/menu/weekly-menu-table/we
     AllergiesPageComponent,
     WishlistTableComponent,
     CreateItemComponent,
-    WeeklyMenuTableComponent
+    WeeklyMenuTableComponent,
+    UpdateMenuComponent,
+    UpdateMenuComponent
   ],
   imports: [
     BrowserModule,
