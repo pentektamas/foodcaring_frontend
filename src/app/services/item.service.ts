@@ -23,4 +23,10 @@ export class ItemService {
    public deleteItem(itemId: String): Observable<any> {
      return this.http.delete<any>(BASE_URL + '/item/' + itemId, REQUEST_HEADERS);
    }
+
+   public update(item: Item): Observable<Item> {
+    return this.http.put<Item>(BASE_URL + '/item', item, REQUEST_HEADERS);
+  }
+
+
 }

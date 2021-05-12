@@ -36,7 +36,7 @@ export class UpdateItemComponent implements OnInit {
 
 
   public updateItem(value){
-
+      
     let product:Item={
       id:this.item.id,
       name:value.name,
@@ -45,18 +45,18 @@ export class UpdateItemComponent implements OnInit {
       image:this.imageSrc
     }
 
-    this.itemService.create(product).subscribe(
+    console.log(product.name);
+
+    this.itemService.update(product).subscribe(
       () => {
         this.dialog.closeAll();
-        this.dialog.open(SuccessModalComponent, {data:`The item was created!`});
+        this.dialog.open(SuccessModalComponent, {data: `The item was created!`});
       }
       , () => {
-        this.dialog.open(ErrorModalComponent, {data:`The item could not be created!`});
+        this.dialog.open(ErrorModalComponent, {data: `The item could not be created!`});
       });
 
   }
-
-
 
   public detectFiles(event:any) {
     let me = this;

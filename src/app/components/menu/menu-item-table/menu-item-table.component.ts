@@ -1,5 +1,5 @@
-
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Menu} from '../../../models/menu.model';
 import {Item} from '../../../models/item.model';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
