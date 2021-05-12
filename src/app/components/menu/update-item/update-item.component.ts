@@ -45,7 +45,6 @@ export class UpdateItemComponent implements OnInit {
       image:this.imageSrc
     }
 
-    console.log(product.name);
 
     this.itemService.update(product).subscribe(
       () => {
