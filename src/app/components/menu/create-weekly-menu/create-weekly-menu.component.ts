@@ -16,8 +16,6 @@ import { ErrorModalComponent } from '../../modals/error-modal/error-modal.compon
 })
 export class CreateWeeklyMenuComponent implements OnInit {
 
-  toppings = new FormControl();
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   public addForm: FormGroup;
   public menus = [] as Menu[];
   public restaurants = [] as Restaurant[];
