@@ -50,6 +50,7 @@ import { CreateItemComponent } from './components/menu/create-item/create-item.c
 import { UpdateItemComponent } from './components/menu/update-item/update-item.component';
 import { WishlistTableComponent } from './components/wishlist/wishlist-table/wishlist-table.component';
 import { WeeklyMenuTableComponent } from './components/menu/weekly-menu-table/weekly-menu-table.component';
+import { DonationsTableComponent } from './components/donations/donations-table/donations-table.component';
 import { CreateWeeklyMenuComponent } from './components/menu/create-weekly-menu/create-weekly-menu.component';
 
 @NgModule({
@@ -81,6 +82,7 @@ import { CreateWeeklyMenuComponent } from './components/menu/create-weekly-menu/
     WishlistTableComponent,
     UpdateItemComponent,
     WeeklyMenuTableComponent,
+    DonationsTableComponent,
     CreateWeeklyMenuComponent
   ],
   imports: [
