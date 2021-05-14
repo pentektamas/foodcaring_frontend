@@ -9,6 +9,7 @@ import {ErrorModalComponent} from "../../modals/error-modal/error-modal.componen
 import { CreateItemComponent } from '../create-item/create-item.component';
 import { WeeklyMenu } from 'src/app/models/weeklyMenu.model';
 import { WeeklyMenuService } from 'src/app/services/weeklyMenu.service';
+import { CreateWeeklyMenuComponent } from '../create-weekly-menu/create-weekly-menu.component';
 
 @Component({
   selector: 'app-weekly-menu-table',
@@ -17,7 +18,7 @@ import { WeeklyMenuService } from 'src/app/services/weeklyMenu.service';
 })
 export class WeeklyMenuTableComponent implements OnInit {
 
-  public columnsToDisplay = ['name', 'itemList','startDate', 'endDate','discountPercent','options'];
+  public columnsToDisplay = ['name', 'itemList','startDate', 'endDate','discountPercent','price','options'];
 
 
   public restaurant: Restaurant;
@@ -46,13 +47,12 @@ export class WeeklyMenuTableComponent implements OnInit {
   }
 
   public add(): void {
-    this.dialog.open(CreateItemComponent).afterClosed().subscribe(
+    this.dialog.open(CreateWeeklyMenuComponent).afterClosed().subscribe(
       () => this.ngOnInit()
     );
   }
 
   public delete($event: MouseEvent, id:any): void {
-    console.log(id);
      this.weeklyMenuService.deleteWeeklyMenu(id).subscribe(
       () => {
         this.dialog.open(SuccessModalComponent, {data: `The weekly menu was deleted!`});
