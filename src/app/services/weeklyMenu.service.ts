@@ -17,9 +17,9 @@ export class WeeklyMenuService {
     return this.http.get<WeeklyMenu[]>(BASE_URL + '/weeklyMenu', REQUEST_HEADERS);
   }
 
-/*    public create(item:WeeklyMenu): Observable<WeeklyMenu> {
-      return this.http.post<WeeklyMenu>(BASE_URL + '/weeklyMenu', item, REQUEST_HEADERS);
-   } */
+  public create(idRestaurant:String,weeklyMenu:WeeklyMenu): Observable<WeeklyMenu> {
+      return this.http.post<WeeklyMenu>(BASE_URL + '/weeklyMenu/'+idRestaurant, weeklyMenu, REQUEST_HEADERS);
+   } 
 
    public deleteWeeklyMenu(weeklyMenuId: String): Observable<any> {
      return this.http.delete<any>(BASE_URL + '/weeklyMenu/' + weeklyMenuId, REQUEST_HEADERS);
