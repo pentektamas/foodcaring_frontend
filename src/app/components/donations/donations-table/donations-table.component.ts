@@ -30,7 +30,6 @@ export class DonationsTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.today = (new Date()).toISOString().split('T')[0];
-    console.log(this.today);
     this.getAll();
   }
 
@@ -41,7 +40,6 @@ export class DonationsTableComponent implements OnInit {
         this.dataSource = new MatTableDataSource<Donation>(this.donations);
         this.dataSource.paginator = this.paginator;
         this.noDonations = '';
-        console.log(donations);
       },
       () => this.dialog.open(ErrorModalComponent, {data: "Could not retrieve donations!"})
     );
