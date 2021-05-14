@@ -22,7 +22,7 @@
   <mat-tab *ngIf="role == 'RESTAURANT_RESPONSIBLE'"
            label="Products" > <app-menu-item-table></app-menu-item-table></mat-tab>
 
-        
+
   <mat-tab *ngIf="role == 'DONOR'"
            label="Make a Donation" > Here will be the DONOR's page for making the donations</mat-tab>
 
@@ -32,7 +32,7 @@
   <mat-tab *ngIf="role == 'DISADVANTAGED_PERSON'"
            label="Allergies" ><app-allergies-page></app-allergies-page></mat-tab>
   <mat-tab *ngIf="role == 'DISADVANTAGED_PERSON'"
-           label="Current Orders" > Here will be the Disadv. pers. page for cancelling orders</mat-tab>
+           label="Donations Received" ><app-donations-table></app-donations-table></mat-tab>
 </mat-tab-group>
 
 <mat-button class="material-icons account-button" [matMenuTriggerFor]="menu">account_circle</mat-button>
