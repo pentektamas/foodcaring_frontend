@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DisadvantagedPersonService} from '../../services/disadvantaged-person.service';
 import {ChartEntry} from '../../models/chart-entry';
 
@@ -26,12 +26,10 @@ export class DonationsChartComponent implements OnInit {
     this.disadvantagedPersonService.getAll().subscribe(
       (data) => {
         this.disadvantagedPersons = data;
-        this.render = true;
-        for (const disadvantagedPerson of this.disadvantagedPersons){
+        for (const disadvantagedPerson of this.disadvantagedPersons) {
           const chartEntry = new ChartEntry();
           chartEntry.disadvantagedPerson = disadvantagedPerson.firstName + ' ' + disadvantagedPerson.lastName;
-          chartEntry.timesHelped = Math.floor(Math.random() * 3);
-          // chartEntry.timesHelped = disadvantagedPerson.timesHelped;
+          chartEntry.nrOfHelps = disadvantagedPerson.nrOfHelps;
           this.chartEntries.push(chartEntry);
         }
         this.chartData = this.chartEntries;
@@ -40,11 +38,12 @@ export class DonationsChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.primaryXAxis = { valueType: 'Category' };
-    this.legendSettings = {visible : true};
-    this.columnMarker = { dataLabel : { visible : true, position: 'Top'}};
-    this.lineMarker = { dataLabel : { visible : true }};
-    this.tooltip = {enable : true};
+    this.primaryXAxis = {valueType: 'Category'};
+    this.legendSettings = {visible: true};
+    this.columnMarker = {/*dataLabel: {visible: true, position: 'Middle'}*/};
+    this.lineMarker = {dataLabel: {visible: true}};
+    this.tooltip = {enable: true};
+    this.render = true;
   }
 
 }
