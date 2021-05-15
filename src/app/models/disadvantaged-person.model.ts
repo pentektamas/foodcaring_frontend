@@ -11,4 +11,5 @@ export class DisadvantagedPerson{
   public priority: number;
   public allergies: String;
   public role: Role;
+  public nrOfHelps: number;
 }

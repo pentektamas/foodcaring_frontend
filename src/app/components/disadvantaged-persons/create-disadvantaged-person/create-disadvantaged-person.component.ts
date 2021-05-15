@@ -36,10 +36,10 @@ export class CreateDisadvantagedPersonComponent implements OnInit {
     this.disadvantagedPersonService.createDisadvantagedPerson(disadvantagedPerson).subscribe(
       () => {
         this.dialog.closeAll();
-        this.dialog.open(SuccessModalComponent, {data: `The restaurant responsible was created!`});
+        this.dialog.open(SuccessModalComponent, {data: `The disadvantaged person was created!`});
       }
       , () => {
-        this.dialog.open(ErrorModalComponent, {data: `The restaurant responsible could not be created!`});
+        this.dialog.open(ErrorModalComponent, {data: `The disadvantaged person could not be created!`});
       });
   }
 }
