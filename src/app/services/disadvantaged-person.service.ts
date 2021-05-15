@@ -30,10 +30,10 @@ export class DisadvantagedPersonService {
   }
 
   public updateDisadvantagedPerson(disadvantagedPerson: DisadvantagedPerson): Observable<DisadvantagedPerson> {
-    return this.http.put<DisadvantagedPerson>(BASE_URL + '/disadvantagedPerson',disadvantagedPerson, REQUEST_HEADERS);
+    return this.http.put<DisadvantagedPerson>(BASE_URL + '/disadvantagedPerson', disadvantagedPerson, REQUEST_HEADERS);
   }
 
-  public deleteDisadvantagedPerson( disadvantagedPersonID: String): Observable<any> {
+  public deleteDisadvantagedPerson(disadvantagedPersonID: String): Observable<any> {
     return this.http.delete<any>(BASE_URL + '/disadvantagedPerson/' + disadvantagedPersonID, REQUEST_HEADERS);
   }
 
@@ -51,5 +51,9 @@ export class DisadvantagedPersonService {
 
   public getWishlist(username: String): Observable<Menu[]> {
     return this.http.get<Menu[]>(BASE_URL + '/disadvantagedPerson/wishlist/' + username, REQUEST_HEADERS);
+  }
+
+  public getUnHelpedDisadvantagedPersons(numberOfPersons: number): Observable<DisadvantagedPerson[]> {
+    return this.http.get<DisadvantagedPerson[]>(BASE_URL + '/disadvantagedPerson/unhelped/' + numberOfPersons, REQUEST_HEADERS);
   }
 }

@@ -3,6 +3,7 @@ import {Menu} from '../models/menu.model';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {BASE_URL, REQUEST_HEADERS} from '../utils/http-constants';
+import {Restaurant} from "../models/restaurant.model";
 
 @Injectable(
   {providedIn: 'root'}
@@ -14,6 +15,10 @@ export class MenuService {
 
   public getAll(restaurantId: String): Observable<Menu[]> {
     return this.http.get<Menu[]>(BASE_URL + '/menu/restaurant/' + restaurantId, REQUEST_HEADERS);
+  }
+
+  public getAllMenusWithDiscounts(restaurantId: String): Observable<Menu[]> {
+    return this.http.get<Menu[]>(BASE_URL + '/menu/all/'+restaurantId, REQUEST_HEADERS);
   }
 
   public getAllNoRestaurant(): Observable<Menu[]> {

@@ -20,6 +20,10 @@ export class DonationService {
     return this.http.get<Donation[]>(BASE_URL + '/donation/disadvantaged/' + username, REQUEST_HEADERS);
   }
 
+  public getAllDonor(username: String): Observable<Donation[]> {
+    return this.http.get<Donation[]>(BASE_URL + '/donation/donor/' + username, REQUEST_HEADERS);
+  }
+
   public getById(donationId: String): Observable<Donation> {
     return this.http.get<Donation>(BASE_URL + '/donation/' + donationId, REQUEST_HEADERS);
   }

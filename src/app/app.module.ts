@@ -20,7 +20,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegisterPageComponent} from './components/register-page/register-page.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MenuTableComponent} from './components/menu/menu-table/menu-table.component';
@@ -40,6 +40,9 @@ import {DisadvantagedPeopleTableComponent} from './components/disadvantaged-pers
 import {UpdatePriorityDisadvantagedPersonComponent} from './components/disadvantaged-persons/update-priority-disadvantaged-person/update-priority-disadvantaged-person.component';
 import {DisadvantagedPersonsTableSortedComponent} from './components/disadvantaged-persons/disadvantaged-persons-table-sorted/disadvantaged-persons-table-sorted.component';
 import {RestaurantResponsibleTableComponent} from './components/restaurant-responsible/restaurant-responsible-table/restaurant-responsible-table.component';
+import {CreateDonationComponent} from './components/donor/create-donation/create-donation.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSliderModule} from '@angular/material/slider';
 import {AllergiesPageComponent} from './components/allergies/allergies-page/allergies-page.component';
 import {MenuItemTableComponent} from './components/menu/menu-item-table/menu-item-table.component';
 import {UpdateDisadvantagedPersonComponent} from './components/disadvantaged-persons/update-disadvantaged-person/update-disadvantaged-person.component';
@@ -62,6 +65,7 @@ import {
   LineSeriesService,
   TooltipService
 } from '@syncfusion/ej2-angular-charts';
+import {DonorDonationsTableComponent} from "./components/donor/donor-donations-table/donor-donations-table.component";
 
 @NgModule({
   declarations: [
@@ -86,7 +90,6 @@ import {
     MenuItemTableComponent,
     UpdateDisadvantagedPersonComponent,
     CreateDisadvantagedPersonComponent,
-    DisadvantagedPersonsTableSortedComponent,
     AllergiesPageComponent,
     CreateItemComponent,
     WishlistTableComponent,
@@ -94,7 +97,9 @@ import {
     WeeklyMenuTableComponent,
     DonationsTableComponent,
     CreateWeeklyMenuComponent,
-    DonationsChartComponent
+    DonationsChartComponent,
+    CreateDonationComponent,
+    DonorDonationsTableComponent
   ],
   imports: [
     BrowserModule,
@@ -112,12 +117,15 @@ import {
     MatIconModule,
     MatDialogModule,
     MatSelectModule,
-    ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
     MatChipsModule,
     MatAutocompleteModule,
     ChartModule,
+    MatStepperModule,
+    MatSliderModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [{

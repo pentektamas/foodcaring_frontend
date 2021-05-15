@@ -24,7 +24,7 @@
 
 
   <mat-tab *ngIf="role == 'DONOR'"
-           label="Make a Donation" > Here will be the DONOR's page for making the donations</mat-tab>
+           label="Make a Donation" > <app-donor-donations-table></app-donor-donations-table></mat-tab>
 
 
   <mat-tab *ngIf="role == 'DISADVANTAGED_PERSON'"

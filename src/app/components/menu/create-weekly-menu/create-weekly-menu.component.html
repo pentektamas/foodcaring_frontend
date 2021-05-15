@@ -35,7 +35,7 @@
                   </mat-option>
               </mat-select>
             </mat-form-field>
-          </div> 
+          </div>
           <div *ngIf="id!=null">
             <small *ngIf="id.invalid && id.touched" class="text-danger">Select the restaurant!</small>
           </div>
@@ -49,18 +49,18 @@
                   </mat-option>
               </mat-select>
             </mat-form-field>
-          </div>  
+          </div>
           <div *ngIf="restaurantMenu!=null">
             <small *ngIf="restaurantMenu.invalid && restaurantMenu.touched" class="text-danger">Select the rmenu!</small>
           </div>
 
 
         <div mat-dialog-actions align="center">
-            <button   [disabled]="addForm.invalid" type="submit" class="modal-button" mat-button >Add Weekly Menu</button>
+            <button   [disabled]="addForm.invalid" type="submit" class="modal-button" mat-button (click)="close()">Add Weekly Menu</button>
             <button class="modal-button" mat-button mat-dialog-close>Close</button>
           </div>
 
-          
+
     </form>
 
   <br>

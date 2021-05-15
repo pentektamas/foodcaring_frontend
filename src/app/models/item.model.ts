@@ -3,5 +3,5 @@ export class Item{
   name: String;
   description: String;
   image: String;
-  price: Number;
+  price: number;
 }

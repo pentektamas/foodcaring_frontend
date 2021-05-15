@@ -36,6 +36,9 @@ export class WeeklyMenuTableComponent implements OnInit {
     this.weeklyMenuService.getAll().subscribe(
       (item) => {
         this.weeklyMenu = item;
+        for (const menu of this.weeklyMenu){
+          menu.price = Math.round((menu.price + Number.EPSILON) * 100) / 100;
+        }
         this.dataSource = new MatTableDataSource<WeeklyMenu>(this.weeklyMenu);
       },
       () => this.noRestaurants = 'It seems like this restaurant has no weekly menus... Add some!'
@@ -60,6 +63,6 @@ export class WeeklyMenuTableComponent implements OnInit {
       },
       () =>
         this.dialog.open(ErrorModalComponent, {data: `The weekly menu could not be deleted!`})
-    ); 
-  } 
+    );
+  }
 }
