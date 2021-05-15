@@ -115,7 +115,7 @@ export class RestaurantResponsibleValidator {
 
   public isValid(): boolean {
     return !this.firstNameForm.errors && !this.lastNameForm.errors && !this.locationForm.errors &&
-      !this.phoneNumberForm.errors && !this.usernameForm.errors && !this.passwordForm.errors && !this.restaurantNameForm.errors;
+      !this.phoneNumberForm.errors && !this.usernameForm.errors && !this.restaurantNameForm.errors;
   }
 
   public init(restaurantResponsible: RestaurantResponsible): void {
