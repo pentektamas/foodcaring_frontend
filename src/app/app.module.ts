@@ -65,6 +65,7 @@ import {
   LineSeriesService,
   TooltipService
 } from '@syncfusion/ej2-angular-charts';
+import {DonorDonationsTableComponent} from "./components/donor/donor-donations-table/donor-donations-table.component";
 
 @NgModule({
   declarations: [
@@ -88,7 +89,7 @@ import {
     DisadvantagedPersonsTableSortedComponent,
     MenuItemTableComponent,
     UpdateDisadvantagedPersonComponent,
-    CreateDisadvantagedPersonComponent, ,
+    CreateDisadvantagedPersonComponent,
     AllergiesPageComponent,
     CreateItemComponent,
     WishlistTableComponent,
@@ -98,7 +99,7 @@ import {
     CreateWeeklyMenuComponent,
     DonationsChartComponent,
     CreateDonationComponent,
-    DonationsTableComponent
+    DonorDonationsTableComponent
   ],
   imports: [
     BrowserModule,

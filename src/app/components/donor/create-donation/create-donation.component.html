@@ -14,7 +14,7 @@
       <mat-form-field appearance="fill" class="full-modal-input">
         <mat-label>Choose a menu</mat-label>
         <mat-select class="right-button" [formControl]="donationValidator.menuForm">
-          <mat-option *ngFor="let menu of menus" [value]="menu">{{menu.name}} - {{menu.price}} lei</mat-option>
+          <mat-option *ngFor="let menu of menus" [value]="menu">{{menu.weekly}} {{menu.name}} - {{menu.price}} lei</mat-option>
         </mat-select>
       </mat-form-field>
       <div>

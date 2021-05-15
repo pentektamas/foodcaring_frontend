@@ -14,6 +14,8 @@ import {map, startWith} from 'rxjs/operators';
 import {DonationService} from '../../../services/donation.service';
 import {SuccessModalComponent} from '../../modals/success-modal/success-modal.component';
 import {ErrorModalComponent} from '../../modals/error-modal/error-modal.component';
+import {DonorService} from "../../../services/donor.service";
+import {Donor} from "../../../models/donor.model";
 
 @Component({
   selector: 'app-create-donation',
@@ -24,6 +26,7 @@ export class CreateDonationComponent implements OnInit {
 
   public restaurants: Restaurant[] = [];
   public menus: Menu[] = [];
+  public donor: Donor;
   public disadvantagedPersons: DisadvantagedPerson[] = [];
 
   public firstStep: FormGroup;
@@ -43,7 +46,8 @@ export class CreateDonationComponent implements OnInit {
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(public dialog: MatDialog, public restaurantService: RestaurantService, public menuService: MenuService,
-              public disadvantagedPersonService: DisadvantagedPersonService, public donationService: DonationService) {
+              public disadvantagedPersonService: DisadvantagedPersonService, public donationService: DonationService,
+              public donorService: DonorService) {
     this.donationValidator = new DonationValidator();
     this.firstStep = new FormGroup({
         menuForm: this.donationValidator.menuForm,
@@ -68,6 +72,9 @@ export class CreateDonationComponent implements OnInit {
             this.disadvantagedPersons.slice()));
       }
     );
+    this.donorService.getByUsername(localStorage.getItem('username')).subscribe(
+      data => this.donor = data
+    );
   }
 
   ngOnInit(): void {
@@ -75,20 +82,31 @@ export class CreateDonationComponent implements OnInit {
   }
 
   getMenus(): void {
-    this.menus = this.donationValidator.restaurantForm.value.menus;
-    for (const menu of this.menus){
-      menu.price = 0;
-      for (const item of menu.itemList){
-        menu.price += item.price;
+    this.menuService.getAllMenusWithDiscounts(this.donationValidator.restaurantForm.value.id).subscribe(
+      (data) => {
+        this.menus = data;
+        for (const menu of this.menus) {
+          if (menu.price === null || menu.price === undefined) {
+            menu.price = 0;
+            for (const item of menu.itemList) {
+              menu.price += item.price;
+            }
+            menu.price = Math.round((menu.price + Number.EPSILON) * 100) / 100;
+          }
+          else{
+            menu.weekly = '!Discount! ';
+            menu.price = Math.round((menu.price + Number.EPSILON) * 100) / 100;
+          }
+        }
       }
-      menu.price = Math.round(( menu.price + Number.EPSILON) * 100) / 100;
-    }
+    );
   }
 
   createDonation(): void {
     const donation = this.donationValidator.getDonation();
     donation.disadvantagedPersons = this.selectedDisadvantagedPersons;
-    this.donationService.createDonation(donation).subscribe(
+    donation.donor = this.donor;
+    this.donationService.create(donation).subscribe(
       () => {
         this.dialog.closeAll();
         this.dialog.open(SuccessModalComponent, {data: `The donation was sent!`});
