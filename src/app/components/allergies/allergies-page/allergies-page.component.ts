@@ -59,6 +59,9 @@ export class AllergiesPageComponent implements OnInit {
   }
 
   public add(value: String): void {
+    if (value === '') {
+      return;
+    }
     this.toggleAdd();
     this.allergies.push(value);
     this.allergyForm = new FormControl('', [Validators.required]);

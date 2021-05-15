@@ -16,6 +16,11 @@ export class RestaurantService {
     return this.http.get<Restaurant[]>(BASE_URL + '/restaurant', REQUEST_HEADERS);
   }
 
+  
+  public getRestaurantWithId(id:String): Observable<Restaurant[]>{
+    return this.http.get<Restaurant[]>(BASE_URL + '/restaurant/'+id, REQUEST_HEADERS);
+  }
+
   public getRestaurantForResponsible(username: String): Observable<Restaurant> {
     return this.http.get<Restaurant>(BASE_URL + '/restaurant-responsible/' + username, REQUEST_HEADERS);
   }

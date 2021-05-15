@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule, routes} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NavbarComponent} from './components/layout-components/navbar/navbar.component';
 import {GeneralLayoutComponent} from './components/layout-components/general-layout/general-layout.component';
 import {LoginPageComponent} from './components/account-components/login-page/login-page.component';
@@ -20,11 +20,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
-import {UserService} from './services/user.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RegisterPageComponent} from './components/register-page/register-page.component';
 import {MatSelectModule} from '@angular/material/select';
-import {RepositoryService} from './services/repository.service';
 import {MenuTableComponent} from './components/menu/menu-table/menu-table.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -47,13 +45,21 @@ import {MenuItemTableComponent} from './components/menu/menu-item-table/menu-ite
 import {UpdateDisadvantagedPersonComponent} from './components/disadvantaged-persons/update-disadvantaged-person/update-disadvantaged-person.component';
 import {CreateDisadvantagedPersonComponent} from './components/disadvantaged-persons/create-disadvantaged-person/create-disadvantaged-person.component';
 import {DonationsChartComponent} from './components/donations-chart/donations-chart.component';
+import {CreateItemComponent} from './components/menu/create-item/create-item.component';
+import {UpdateItemComponent} from './components/menu/update-item/update-item.component';
+import {WishlistTableComponent} from './components/wishlist/wishlist-table/wishlist-table.component';
+import {WeeklyMenuTableComponent} from './components/menu/weekly-menu-table/weekly-menu-table.component';
+import {DonationsTableComponent} from './components/donations/donations-table/donations-table.component';
+import {CreateWeeklyMenuComponent} from './components/menu/create-weekly-menu/create-weekly-menu.component';
+
 
 import {
   CategoryService,
   ChartModule,
   ColumnSeriesService,
   DataLabelService,
-  LegendService, LineSeriesService,
+  LegendService,
+  LineSeriesService,
   TooltipService
 } from '@syncfusion/ej2-angular-charts';
 
@@ -82,6 +88,12 @@ import {
     CreateDisadvantagedPersonComponent,
     DisadvantagedPersonsTableSortedComponent,
     AllergiesPageComponent,
+    CreateItemComponent,
+    WishlistTableComponent,
+    UpdateItemComponent,
+    WeeklyMenuTableComponent,
+    DonationsTableComponent,
+    CreateWeeklyMenuComponent,
     DonationsChartComponent
   ],
   imports: [

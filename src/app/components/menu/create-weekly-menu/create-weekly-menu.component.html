@@ -1,0 +1,67 @@
+<div class="modal-title"> Please fill in the following fields in order to add a weekly menu:</div>
+<div class="modal-content">
+    <form  [formGroup]="addForm" (ngSubmit)="addWeeklyMenu(addForm.value)" class="form-dimension">
+
+        <mat-form-field class="modal-input" appearance="legacy" class="form-align" >
+            <mat-label>Start date</mat-label>
+            <input matInput required placeholder="Description" type="date" formControlName="startDate" >
+        </mat-form-field>
+        <div *ngIf="startDate!=null">
+            <small *ngIf="startDate.invalid && startDate.touched" class="text-danger">Select start date!</small>
+          </div>
+
+        <mat-form-field class="modal-input" appearance="legacy" class="form-align">
+            <mat-label>End date</mat-label>
+            <input matInput required placeholder="Price" type="date" formControlName="endDate" >
+        </mat-form-field>
+        <div *ngIf="endDate!=null">
+            <small *ngIf="endDate.invalid && endDate.touched" class="text-danger">Select end date!</small>
+          </div>
+
+        <mat-form-field class="modal-input" appearance="legacy" class="form-align">
+            <mat-label>Discount percent</mat-label>
+            <input matInput required placeholder="Price" type="number" formControlName="discountPercent" >
+        </mat-form-field>
+        <div *ngIf="discountPercent!=null">
+            <small *ngIf="discountPercent.invalid && discountPercent.touched" class="text-danger">Enter the discount!</small>
+          </div>
+
+        <div class="row">
+            <mat-form-field class="modal-input" appearance="legacy" class="form-align">
+              <mat-label>Selectati restaurant</mat-label>
+              <mat-select formControlName=id  required (selectionChange)="getItemFromRestaurant()">
+                <mat-option *ngFor="let id of restaurants" [value]="id">
+                    {{id.name}}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div> 
+          <div *ngIf="id!=null">
+            <small *ngIf="id.invalid && id.touched" class="text-danger">Select the restaurant!</small>
+          </div>
+
+        <div class="row" *ngIf="menus.length">
+            <mat-form-field class="modal-input" appearance="legacy" class="form-align">
+              <mat-label>Meniuri disponibile</mat-label>
+              <mat-select formControlName="restaurantMenu" required >
+                <mat-option *ngFor="let unit of menus" [value]="unit">
+                    {{unit.name}}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>  
+          <div *ngIf="restaurantMenu!=null">
+            <small *ngIf="restaurantMenu.invalid && restaurantMenu.touched" class="text-danger">Select the rmenu!</small>
+          </div>
+
+
+        <div mat-dialog-actions align="center">
+            <button   [disabled]="addForm.invalid" type="submit" class="modal-button" mat-button >Add Weekly Menu</button>
+            <button class="modal-button" mat-button mat-dialog-close>Close</button>
+          </div>
+
+          
+    </form>
+
+  <br>
+</div>
