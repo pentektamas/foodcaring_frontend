@@ -42,8 +42,29 @@ import {DisadvantagedPersonsTableSortedComponent} from './components/disadvantag
 import {RestaurantResponsibleTableComponent} from './components/restaurant-responsible/restaurant-responsible-table/restaurant-responsible-table.component';
 import {CreateDonationComponent} from './components/donor/create-donation/create-donation.component';
 import {MatStepperModule} from '@angular/material/stepper';
-import {DonationsTableComponent} from './components/donor/donations-table/donations-table.component';
 import {MatSliderModule} from '@angular/material/slider';
+import {AllergiesPageComponent} from './components/allergies/allergies-page/allergies-page.component';
+import {MenuItemTableComponent} from './components/menu/menu-item-table/menu-item-table.component';
+import {UpdateDisadvantagedPersonComponent} from './components/disadvantaged-persons/update-disadvantaged-person/update-disadvantaged-person.component';
+import {CreateDisadvantagedPersonComponent} from './components/disadvantaged-persons/create-disadvantaged-person/create-disadvantaged-person.component';
+import {DonationsChartComponent} from './components/donations-chart/donations-chart.component';
+import {CreateItemComponent} from './components/menu/create-item/create-item.component';
+import {UpdateItemComponent} from './components/menu/update-item/update-item.component';
+import {WishlistTableComponent} from './components/wishlist/wishlist-table/wishlist-table.component';
+import {WeeklyMenuTableComponent} from './components/menu/weekly-menu-table/weekly-menu-table.component';
+import {DonationsTableComponent} from './components/donations/donations-table/donations-table.component';
+import {CreateWeeklyMenuComponent} from './components/menu/create-weekly-menu/create-weekly-menu.component';
+
+
+import {
+  CategoryService,
+  ChartModule,
+  ColumnSeriesService,
+  DataLabelService,
+  LegendService,
+  LineSeriesService,
+  TooltipService
+} from '@syncfusion/ej2-angular-charts';
 
 @NgModule({
   declarations: [
@@ -65,6 +86,17 @@ import {MatSliderModule} from '@angular/material/slider';
     DisadvantagedPeopleTableComponent,
     UpdatePriorityDisadvantagedPersonComponent,
     DisadvantagedPersonsTableSortedComponent,
+    MenuItemTableComponent,
+    UpdateDisadvantagedPersonComponent,
+    CreateDisadvantagedPersonComponent, ,
+    AllergiesPageComponent,
+    CreateItemComponent,
+    WishlistTableComponent,
+    UpdateItemComponent,
+    WeeklyMenuTableComponent,
+    DonationsTableComponent,
+    CreateWeeklyMenuComponent,
+    DonationsChartComponent,
     CreateDonationComponent,
     DonationsTableComponent
   ],
@@ -83,13 +115,12 @@ import {MatSliderModule} from '@angular/material/slider';
     MatMenuModule,
     MatIconModule,
     MatDialogModule,
-    MatInputModule,
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule,
     MatChipsModule,
     MatAutocompleteModule,
+    ChartModule,
     MatStepperModule,
     MatSliderModule,
     FormsModule,
@@ -100,7 +131,9 @@ import {MatSliderModule} from '@angular/material/slider';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthenticationInterceptor,
     multi: true
-  }],
+  },
+    CategoryService, ColumnSeriesService, LineSeriesService, DataLabelService, LegendService, TooltipService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

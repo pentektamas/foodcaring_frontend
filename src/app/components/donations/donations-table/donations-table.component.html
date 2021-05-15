@@ -1,0 +1,61 @@
+<div class="content"></div>
+<div align="center">
+  <br><br><br>
+  <h1> Donations Received </h1>
+  <br>
+  <div *ngIf="donations.length == 0"><br><br><br><h1>There are no donations available</h1></div>
+  <table *ngIf="donations.length>0" mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="restaurant">
+      <th mat-header-cell *matHeaderCellDef> Restaurant </th>
+      <td mat-cell *matCellDef="let element"> {{element.restaurant.name}} </td>
+    </ng-container>
+
+      <ng-container matColumnDef="menu">
+        <th mat-header-cell *matHeaderCellDef> Menu </th>
+        <td mat-cell *matCellDef="let element"> <br><h1>{{element.menu.name}}</h1>
+          <br>
+          <div *ngFor="let item of element.menu.itemList" class="menu-item">
+            <div class="row">
+              <div class="image-part">
+                <img class="item-image" src="{{item.image}}" alt="Poza item"/>
+              </div>
+              <div class="details-part">
+                <mat-label><b>{{item.name}}</b></mat-label>
+                <br>
+                <mat-label><i>{{item.description}}</i></mat-label>
+                <br>
+              </div>
+            </div>
+          </div>
+          <br>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="donor">
+        <th mat-header-cell *matHeaderCellDef> Donor </th>
+        <td mat-cell *matCellDef="let element"> {{element.donor.firstName + " " + element.donor.lastName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date | date: 'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+
+    <ng-container matColumnDef="options">
+      <th mat-header-cell *matHeaderCellDef> Options </th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="this.today === element.date.split('T')[0]" title="Cancel donation" (click)="delete($event, element)" class="material-icons message-icon">cancel</span>
+        <span *ngIf="this.today !== element.date.split('T')[0]" title="Donation received" class="material-icons message-icon">mood</span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+
+
+  </table>
+  <mat-paginator *ngIf="donations.length > 0" class='paginator-class' [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <br>
+</div>

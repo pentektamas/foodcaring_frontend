@@ -1,0 +1,49 @@
+<div class="modal-title"> Please fill in the following fields in order to update a Disadvantaged Person:</div>
+<div class="modal-content">
+  <mat-form-field class="modal-input half-modal-input" appearance="legacy">
+    <mat-label>First name</mat-label>
+    <input matInput required placeholder="Ioan" [formControl]="disadvantagedPersonValidator.firstNameForm">
+    <mat-error
+      *ngIf="disadvantagedPersonValidator.firstNameForm.invalid">{{disadvantagedPersonValidator.getFirstNameFormErrors()}}
+    </mat-error>
+  </mat-form-field>
+  &nbsp;&nbsp;
+  <mat-form-field class="modal-input half-modal-input" appearance="legacy">
+    <mat-label>Last name</mat-label>
+    <input matInput required placeholder="Popescu" [formControl]="disadvantagedPersonValidator.lastNameForm">
+    <mat-error
+      *ngIf="disadvantagedPersonValidator.lastNameForm.invalid">{{disadvantagedPersonValidator.getLastNameFormErrors()}}
+    </mat-error>
+  </mat-form-field>
+  <br><br>
+  <mat-form-field class="modal-input half-modal-input" appearance="legacy">
+    <mat-label>Location</mat-label>
+    <input matInput required placeholder="str. Lalelelor nr. 29" [formControl]="disadvantagedPersonValidator.locationForm">
+    <mat-error
+      *ngIf="disadvantagedPersonValidator.locationForm.invalid">{{disadvantagedPersonValidator.getLocationFormErrors()}}
+    </mat-error>
+  </mat-form-field>
+  &nbsp;&nbsp;
+  <mat-form-field class="modal-input half-modal-input" appearance="legacy">
+    <mat-label>Phone number</mat-label>
+    <input matInput required placeholder="+40748589324" [formControl]="disadvantagedPersonValidator.phoneNumberForm">
+    <mat-error
+      *ngIf="disadvantagedPersonValidator.phoneNumberForm.invalid">{{disadvantagedPersonValidator.getPhoneNumberFormErrors()}}
+    </mat-error>
+  </mat-form-field>
+  <br><br>
+  <mat-form-field class="modal-input half-modal-input" appearance="legacy">
+    <mat-label>Username</mat-label>
+    <input matInput required placeholder="popescuioan" [formControl]="disadvantagedPersonValidator.usernameForm">
+    <mat-error
+      *ngIf="disadvantagedPersonValidator.usernameForm.invalid">{{disadvantagedPersonValidator.getUsernameFormErrors()}}
+    </mat-error>
+  </mat-form-field>
+  &nbsp;&nbsp;
+  <br><br>
+  <div mat-dialog-actions align="center">
+    <button class="modal-button" mat-button *ngIf="this.disadvantagedPersonValidator.isValidWithoutPasswordField()" (click)="updateDisadvantagedPerson()">Update Disadvantaged Person</button>
+    <button class="modal-button" mat-button mat-dialog-close>Close</button>
+  </div>
+  <br>
+</div>

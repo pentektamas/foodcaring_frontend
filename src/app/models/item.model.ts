@@ -1,5 +1,5 @@
 export class Item{
-  id: String;
+  id?: String;
   name: String;
   description: String;
   image: String;
