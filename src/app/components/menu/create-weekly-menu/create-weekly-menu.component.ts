@@ -18,7 +18,6 @@ export class CreateWeeklyMenuComponent implements OnInit {
 
   public addForm: FormGroup;
   public menus = [] as Menu[];
-  public idRestaurant;
 
   constructor(public dialog: MatDialog, public week: MenuService, public restaurantService: RestaurantService,
               public weeklyMenuService: WeeklyMenuService, public menuService: MenuService) {
