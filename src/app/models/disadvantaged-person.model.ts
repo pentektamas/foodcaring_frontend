@@ -1,3 +1,5 @@
+import {Role} from "./enums/role.enum";
+
 export class DisadvantagedPerson{
   public id: String;
   public firstName: String;
@@ -7,4 +9,7 @@ export class DisadvantagedPerson{
   public username: String;
   public password: String;
   public priority: number;
+  public allergies: String;
+  public role: Role;
+  public nrOfHelps: number;
 }

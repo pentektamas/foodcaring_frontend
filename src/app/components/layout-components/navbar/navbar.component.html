@@ -13,23 +13,26 @@
   <mat-tab *ngIf="role == 'ADMIN'"
            label="Priorities" > <app-disadvantaged-persons-table-sorted></app-disadvantaged-persons-table-sorted></mat-tab>
   <mat-tab *ngIf="role == 'ADMIN'"
-           label="Charts"> Here will be the ADMIN's page for the charts</mat-tab>
+           label="Charts"> <app-donations-chart></app-donations-chart></mat-tab>
 
   <mat-tab *ngIf="role == 'RESTAURANT_RESPONSIBLE'"
            label="Menus" > <app-menu-table></app-menu-table></mat-tab>
   <mat-tab *ngIf="role == 'RESTAURANT_RESPONSIBLE'"
-           label="Products" > Here will be the REST_RESP's page for working with Products' data</mat-tab>
+           label="Weekly Menu" > <app-weekly-menu-table></app-weekly-menu-table></mat-tab>
+  <mat-tab *ngIf="role == 'RESTAURANT_RESPONSIBLE'"
+           label="Products" > <app-menu-item-table></app-menu-item-table></mat-tab>
+
 
   <mat-tab *ngIf="role == 'DONOR'"
-           label="Make a Donation" > Here will be the DONOR's page for making the donations</mat-tab>
+           label="Make a Donation" > <app-donor-donations-table></app-donor-donations-table></mat-tab>
 
 
   <mat-tab *ngIf="role == 'DISADVANTAGED_PERSON'"
-           label="Wishlist" > Here will be the Disadv. pers. wishlist page</mat-tab>
+           label="Wishlist" > <app-wishlist-table></app-wishlist-table></mat-tab>
   <mat-tab *ngIf="role == 'DISADVANTAGED_PERSON'"
-           label="Allergies" > Here will be the Disadv. pers. allergies page</mat-tab>
+           label="Allergies" ><app-allergies-page></app-allergies-page></mat-tab>
   <mat-tab *ngIf="role == 'DISADVANTAGED_PERSON'"
-           label="Current Orders" > Here will be the Disadv. pers. page for cancelling orders</mat-tab>
+           label="Donations Received" ><app-donations-table></app-donations-table></mat-tab>
 </mat-tab-group>
 
 <mat-button class="material-icons account-button" [matMenuTriggerFor]="menu">account_circle</mat-button>

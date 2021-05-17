@@ -1,15 +1,20 @@
-<br><br><br><br>
-<div align="center">
-  <h1> Disadvantaged persons </h1>
-<!--  <span title="Create a new disadvantaged person" class="material-icons add-menu" (click)="add()">add</span>-->
-  <br>
-  <h1>{{noDisadvantagedPersons}}</h1>
-  <div id="users" *ngFor="let disadvantagedPerson of obs |async;let i =index" class="users">
+<div class="content">
+  <br><br><br><br>
+  <div align="center">
+    <h1> Disadvantaged persons </h1>
+    <span title="Create a new disadvantaged person" class="material-icons add-menu" (click)="add()">add</span>
+    <br>
+    <h1>{{noDisadvantagedPersons}}</h1>
+    <div id="users" *ngFor="let disadvantagedPerson of obs |async;let i =index" class="users">
       <mat-card>
         <img class="image" src="../../../../assets/img/disadvantagedPerson.png">
         <div class="operations">
+          <span title="Edit the disadvantaged person" (click)="edit($event, disadvantagedPerson)"
+                class="material-icons message-icon">edit</span>
+          <span title="Delete the disadvantaged person" (click)="delete($event, disadvantagedPerson)"
+                class="material-icons message-icon">delete</span>
         </div>
-        <div  class="info">
+        <div class="info">
           <br>
           <b>Name: </b>{{disadvantagedPerson.firstName}} {{disadvantagedPerson.lastName}} <br>
           <b>Location: </b>{{disadvantagedPerson.location}} <br>
@@ -17,8 +22,10 @@
         </div>
       </mat-card>
 
+    </div>
+    <br><br><br><br><br><br>
+    <mat-paginator *ngIf="noDisadvantagedPersons.length == 0" class='paginator-class' [pageSizeOptions]="[6, 12, 21]"
+                   showFirstLastButtons></mat-paginator>
   </div>
-  <br>
-  <mat-paginator *ngIf="noDisadvantagedPersons.length == 0" class='paginator-class' [pageSizeOptions]="[6, 12, 21]" showFirstLastButtons></mat-paginator>
 </div>
 

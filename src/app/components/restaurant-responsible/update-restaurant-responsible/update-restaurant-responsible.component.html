@@ -40,18 +40,10 @@
     </mat-error>
   </mat-form-field>
   &nbsp;&nbsp;
-  <mat-form-field class="modal-input half-modal-input" appearance="legacy">
-    <mat-label>Password</mat-label>
-    <input matInput required placeholder="password" [formControl]="restaurantResponsibleValidator.passwordForm">
-    <mat-error
-      *ngIf="restaurantResponsibleValidator.passwordForm.invalid">{{restaurantResponsibleValidator.getPasswordFormErrors()}}
-    </mat-error>
-  </mat-form-field>
-  <br><br>
   <mat-form-field appearance="fill" class="full-modal-input">
     <mat-label>Choose a restaurant</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let restaurant of restaurants" [formControl]="restaurantResponsibleValidator.restaurantNameForm"
+    <mat-select [formControl]="restaurantResponsibleValidator.restaurantNameForm">
+      <mat-option *ngFor="let restaurant of restaurants"
                   value="{{restaurant.name}}">{{restaurant.name}}</mat-option>
     </mat-select>
   </mat-form-field>

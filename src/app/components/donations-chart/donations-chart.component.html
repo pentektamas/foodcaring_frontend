@@ -1,0 +1,19 @@
+<div class="content">
+<br><br><br><br>
+<div align="center" *ngIf="disadvantagedPersons" class="content-div">
+  <h1> Statistics about how people were helped </h1>
+  <br><br>
+  <ejs-chart id="chart-container" class="chart" [primaryXAxis]="primaryXAxis" [legendSettings]="legendSettings"
+             [tooltip]="tooltip" [palettes]='["midnightblue", "midnightblue"]' width='1024' height='100%'
+             background='rgba(255,255,255,0.9)'>
+    <e-series-collection>
+      <e-series [dataSource]="chartData" type="Column" xName="disadvantagedPerson" yName="nrOfHelps"
+                name="Donations"  [marker]="columnMarker">
+      </e-series>
+      <e-series [dataSource]="chartData" type="Line"  xName="disadvantagedPerson" yName="nrOfHelps"
+                name="Donations"  [marker]="lineMarker" [visible]="false">
+      </e-series>
+    </e-series-collection>
+  </ejs-chart>
+</div>
+</div>
