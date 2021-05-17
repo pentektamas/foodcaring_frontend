@@ -37,9 +37,13 @@ export class MenuTableComponent implements OnInit, AfterViewInit {
     this.restaurantService.getRestaurantForResponsible(localStorage.getItem('username')).subscribe(
       (restaurant) => {
         this.restaurant = restaurant;
-        this.menus = this.restaurant.menus;
-        this.dataSource = new MatTableDataSource<Menu>(this.menus);
-        this.dataSource.paginator = this.paginator;
+        this.menuService.getAll(restaurant.id).subscribe(
+          (data) => {
+            this.menus = data;
+            this.dataSource = new MatTableDataSource<Menu>(this.menus);
+            this.dataSource.paginator = this.paginator;
+          }
+        );
         this.noRestaurants = '';
       },
       () => this.noRestaurants = 'It seems like this restaurant has no menus... Add some!'
