@@ -20,7 +20,6 @@ export class MenuItemTableComponent implements OnInit {
 
   public dataSource: MatTableDataSource<Item>;
   public columnsToDisplay = ['image','name', 'description','price', 'options'];
-
   public restaurant: Restaurant;
   public items = [] as Item[];
 
@@ -47,7 +46,7 @@ export class MenuItemTableComponent implements OnInit {
   }
 
   
-  public edit($event: MouseEvent, item: Item): void {
+  public edit($event: MouseEvent, item: Item): void {   
     this.dialog.open(UpdateItemComponent, {data: item}).afterClosed().subscribe(
       () => this.ngOnInit()
     );
