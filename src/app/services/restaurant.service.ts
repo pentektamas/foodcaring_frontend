@@ -16,7 +16,7 @@ export class RestaurantService {
     return this.http.get<Restaurant[]>(BASE_URL + '/restaurant', REQUEST_HEADERS);
   }
 
-  
+
   public getRestaurantWithId(id:String): Observable<Restaurant[]>{
     return this.http.get<Restaurant[]>(BASE_URL + '/restaurant/'+id, REQUEST_HEADERS);
   }
@@ -26,9 +26,10 @@ export class RestaurantService {
   }
 
   public deleteMenu(menu: Menu, restaurant: Restaurant): Observable<Restaurant> {
-    const index = restaurant.menus.indexOf(menu, 0);
-    if (index > -1) {
-      restaurant.menus.splice(index, 1);
+    for (const match of restaurant.menus) {
+      if (match.id === menu.id) {
+        restaurant.menus.splice(restaurant.menus.indexOf(match), 1);
+      }
     }
     return this.http.put<Restaurant>(BASE_URL + '/restaurant', restaurant, REQUEST_HEADERS);
   }
