@@ -3,7 +3,7 @@
     <form  [formGroup]="updateForm" (ngSubmit)="updateItem(updateForm.value)">
         <mat-form-field class="modal-input" appearance="legacy">
             <mat-label>Name</mat-label>
-            <input matInput required placeholder="Name" type="text" formControlName="name">
+            <input matInput required type="text" formControlName="name">
         </mat-form-field>
 
         <mat-form-field class="modal-input" appearance="legacy">
@@ -22,7 +22,7 @@
             <input type="file" class="custom-file-input form-control button-file" name="files" id="files" multiple
                 (change)="detectFiles($event)" accept="image/x-png,image/jpeg"> 
         </div>
-        <div class="images-preview" *ngIf="imageSrc">
+        <div class="images-preview" >
             <div class="row ">
                     <div class="card col-md-4 " >
                          <img [src]="imageSrc" class="card-img-top" > 
