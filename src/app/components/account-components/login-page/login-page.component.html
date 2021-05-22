@@ -1,12 +1,16 @@
-<div class="content">
+<div class="content" align="center">
+
 <div fxLayoutAlign="center center" class="dimension">
-<mat-toolbar color="primary" >
-    <span>LOGIN</span>
+
+  <mat-toolbar color="primary">
+    <div class="top-text" align="center">
+      <img class='logo' src="../../../assets/img/logo-removebg-preview.png">
+    </div>
   </mat-toolbar>
   <form  class="form align" [formGroup]="loginForm"   (ngSubmit)="loginUser(loginForm.value)">
   <mat-card class="my-card" >
      <mat-card-content>
-
+      <h1> Food Caring</h1>
            <div>
            <div class="row">
            <mat-form-field class="full-width">
