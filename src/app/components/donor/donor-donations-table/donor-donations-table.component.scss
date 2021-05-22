@@ -4,7 +4,12 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Bahnschrift", "Times New Roman", Times, serif;
-  font-size: 30px;
+}
+
+.item-image {
+  max-width: 95%;
+  max-height: 300px;
+  background-size: cover;
 }
 
 .mat-table {
@@ -36,6 +41,36 @@ h1 {
   font-size: 20px;
 }
 
+.image-part {
+  float: left;
+  width: 256px;
+}
+
+.minimal-column{
+  min-width: 100px;
+  max-width: 200px;
+  text-align: center;
+  padding-right: 25px;
+}
+
+.minimal-column-for-items{
+  min-width: 100px;
+  text-align: center;
+  padding-right: 25px;
+}
+
+.details-part {
+  height: 170px;
+  padding-top: 86px;
+  padding-left: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .content {
   background-image: url("../../../../assets/img/background.jpg");
   background-color: rgb(156, 216, 237);
@@ -47,4 +82,12 @@ h1 {
   height: 100vh;
   position: fixed;
   z-index: -1;
+}
+
+table {
+  background-color: rgba(255,255,255,0.4);
+}
+
+mat-paginator, th {
+  background-color: rgba(255, 255, 255, 1);
 }

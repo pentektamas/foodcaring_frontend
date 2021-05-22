@@ -8,8 +8,8 @@
 <table *ngIf="noRestaurants.length == 0" mat-table [dataSource]="dataSource">
 
     <ng-container matColumnDef="image">
-        <th mat-header-cell *matHeaderCellDef> Image </th>
-        <td mat-cell *matCellDef="let element">
+        <th mat-header-cell *matHeaderCellDef class="image-column"> Image </th>
+        <td mat-cell *matCellDef="let element" class="image-column">
           <br>
             <div class="row">
               <div class="image-part">
@@ -21,8 +21,8 @@
       </ng-container>
 
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> <b>{{element.name}}</b> </td>
+    <th mat-header-cell *matHeaderCellDef class="minimal-column"> Name </th>
+    <td mat-cell *matCellDef="let element" class="minimal-column"> <b>{{element.name}}</b> </td>
   </ng-container>
 
   <ng-container matColumnDef="description">
@@ -31,14 +31,14 @@
   </ng-container>
 
   <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef> Price </th>
-    <td mat-cell *matCellDef="let element"> <b>{{element.price}}</b> </td>
+    <th mat-header-cell *matHeaderCellDef class="minimal-column"> Price </th>
+    <td mat-cell *matCellDef="let element" class="minimal-column"> <b>{{element.price}}</b> RON </td>
   </ng-container>
 
 
   <ng-container matColumnDef="options">
-    <th mat-header-cell *matHeaderCellDef> Options </th>
-    <td mat-cell *matCellDef="let element">
+    <th mat-header-cell *matHeaderCellDef class="minimal-column"> Options </th>
+    <td mat-cell *matCellDef="let element" class="minimal-column">
       <span title="Edit the menu item" (click)="edit($event, element)" class="material-icons message-icon">edit</span>
       <span title="Delete the menu item" (click)="delete($event, element.id)" class="material-icons message-icon">delete</span>
     </td>

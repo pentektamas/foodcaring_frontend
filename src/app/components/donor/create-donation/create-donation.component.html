@@ -14,7 +14,7 @@
       <mat-form-field appearance="fill" class="full-modal-input">
         <mat-label>Choose a menu</mat-label>
         <mat-select class="right-button" [formControl]="donationValidator.menuForm">
-          <mat-option *ngFor="let menu of menus" [value]="menu">{{menu.weekly}} {{menu.name}} - {{menu.price}} lei</mat-option>
+          <mat-option *ngFor="let menu of menus" [value]="menu">{{menu.weekly}} {{menu.name}} - {{menu.price}} RON</mat-option>
         </mat-select>
       </mat-form-field>
       <div>
@@ -79,9 +79,9 @@
     </mat-slider>
     <br>
     <button *ngIf="selectRandom" class="full-input" mat-button (click)="getRandomDisadvantagedPerson()">
-      Select a random disadvantaged person
+      Select random disadvantaged persons
     </button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Total price:</b> {{total}} lei
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Total price:</b> {{total}} RON
     <br><br>
     <button class="left-button" mat-button matStepperPrevious>Back</button>
     <button class="right-button" mat-button
