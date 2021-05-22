@@ -10,13 +10,14 @@
   <table *ngIf="donations.length>0" mat-table [dataSource]="dataSource">
 
     <ng-container matColumnDef="restaurant">
-      <th mat-header-cell *matHeaderCellDef> Restaurant </th>
-      <td mat-cell *matCellDef="let element"> {{element.restaurant.name}} </td>
+      <th mat-header-cell *matHeaderCellDef class="minimal-column"> Restaurant </th>
+      <td mat-cell *matCellDef="let element" class="minimal-column"> {{element.restaurant.name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="menu">
       <th mat-header-cell *matHeaderCellDef> Menu </th>
-      <td mat-cell *matCellDef="let element"> <br><h1>{{element.menu.name}}</h1>
+      <td mat-cell *matCellDef="let element"> <br>
+        <center><h1>{{element.menu.name}}</h1></center>
         <br>
         <div *ngFor="let item of element.menu.itemList" class="menu-item">
           <div class="row">
@@ -36,8 +37,8 @@
     </ng-container>
 
     <ng-container matColumnDef="disadvantagedPersons">
-      <th mat-header-cell *matHeaderCellDef> Disadvantaged persons </th>
-      <td mat-cell *matCellDef="let element">
+      <th mat-header-cell *matHeaderCellDef class="minimal-column"> Disadvantaged persons </th>
+      <td mat-cell *matCellDef="let element" class="minimal-column">
         <div *ngIf="element.disadvantagedPersons.length > 0">
         <div *ngFor="let disadvantaged of element.disadvantagedPersons"> {{disadvantaged.firstName + " " + disadvantaged.lastName + " "}} </div>
         </div>
@@ -48,14 +49,14 @@
     </ng-container>
 
     <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> Date </th>
-      <td mat-cell *matCellDef="let element"> {{element.date | date: 'dd/MM/yyyy'}} </td>
+      <th mat-header-cell *matHeaderCellDef class="minimal-column"> Date </th>
+      <td mat-cell *matCellDef="let element" class="minimal-column"> {{element.date | date: 'dd/MM/yyyy'}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="options">
-      <th mat-header-cell *matHeaderCellDef> Options </th>
-      <td mat-cell *matCellDef="let element">
+      <th mat-header-cell *matHeaderCellDef class="minimal-column"> Options </th>
+      <td mat-cell *matCellDef="let element" class="minimal-column">
         <span *ngIf="this.today === element.date.split('T')[0]" title="Cancel donation" (click)="delete($event, element)" class="material-icons message-icon">cancel</span>
         <span *ngIf="this.today !== element.date.split('T')[0]" title="Donation received" class="material-icons message-icon">mood</span>
       </td>

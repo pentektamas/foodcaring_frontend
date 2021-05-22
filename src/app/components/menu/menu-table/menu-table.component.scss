@@ -43,12 +43,19 @@ h1 {
 
 .image-part {
   float: left;
-  width: 40%;
+}
+
+.minimal-column{
+  min-width: 100px;
+  max-width: 200px;
+  text-align: center;
+  padding-right: 25px;
 }
 
 .details-part {
-  float: left;
-  width: 60%;
+  height: 170px;
+  padding-top: 86px;
+  padding-left: 10px;
 }
 
 .row:after {
@@ -70,3 +77,11 @@ h1 {
   z-index: -1;
 }
 
+
+table {
+  background-color: rgba(255,255,255,0.4);
+}
+
+mat-paginator, th{
+  background-color: rgba(255,255,255,1);
+}
