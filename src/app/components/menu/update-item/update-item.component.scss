@@ -16,3 +16,14 @@
     max-width: 200px;
     background-size: cover;
 }
+
+.modal-title {
+  display: inline-block;
+  background: linear-gradient(90deg, red, midnightblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Bahnschrift", "Times New Roman", Times, serif;
+}
+
+
+
