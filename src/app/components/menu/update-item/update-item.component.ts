@@ -18,17 +18,18 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class UpdateItemComponent implements OnInit {
   public updateForm: FormGroup;
-  public imageSrc: string;
-
+  public imageSrc: String;
   constructor(@Inject(MAT_DIALOG_DATA) public item: Item, public dialog: MatDialog,private formBuilder: FormBuilder,public itemService: ItemService) {
     this.updateForm = new FormGroup({
       id:new FormControl(''),
-      name: new FormControl(''),
-      description: new FormControl(''),
-      price: new FormControl(''),
-      image: this.formBuilder.array([]),
+      name: new FormControl(item.name),
+      description: new FormControl(item.description),
+      price: new FormControl(item.price),
+      image: this.formBuilder.array([]),    
   });
+    this.imageSrc=item.image;
    }
+ 
 
   ngOnInit(): void {
 
@@ -66,5 +67,6 @@ export class UpdateItemComponent implements OnInit {
     this.imageSrc = e.target.result;
   };
 }
+
 
 }
