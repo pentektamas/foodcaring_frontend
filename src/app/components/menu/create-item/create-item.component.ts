@@ -34,12 +34,17 @@ export class CreateItemComponent implements OnInit {
   }
 
   public addItem(value){
-      
+
     let product:Item={
       name:value.name,
       description:value.description,
       price:value.price,
       image:this.imageSrc
+    }
+
+    if (product.price < 0){
+      this.dialog.open(ErrorModalComponent, {data: `The price of the item should be positive!`});
+      return;
     }
 
     this.itemService.create(product).subscribe(

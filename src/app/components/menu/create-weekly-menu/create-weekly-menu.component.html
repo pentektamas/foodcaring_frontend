@@ -20,10 +20,10 @@
 
     <mat-form-field class="modal-input" appearance="legacy" class="form-align">
       <mat-label>Discount percent</mat-label>
-      <input matInput required placeholder="Price" type="number" formControlName="discountPercent">
+      <input matInput required placeholder="Price" type="number" min="1" formControlName="discountPercent">
     </mat-form-field>
     <div *ngIf="discountPercent!=null">
-      <small *ngIf="discountPercent.invalid && discountPercent.touched" class="text-danger">Enter the discount!</small>
+      <small *ngIf="discountPercent.invalid && discountPercent.touched" class="text-danger">Enter an positive discount!</small>
     </div>
 
     <div class="row" *ngIf="menus.length">
