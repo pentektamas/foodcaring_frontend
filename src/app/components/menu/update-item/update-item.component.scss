@@ -27,3 +27,16 @@
 
 
 
+
+.button{
+  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+.button:hover{
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.1);
+}

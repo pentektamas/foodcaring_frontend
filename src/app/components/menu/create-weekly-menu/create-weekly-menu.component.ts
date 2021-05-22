@@ -24,7 +24,7 @@ export class CreateWeeklyMenuComponent implements OnInit {
     this.addForm = new FormGroup({
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
-      discountPercent: new FormControl('', [Validators.required]),
+      discountPercent: new FormControl('', [Validators.required, Validators.min(0)]),
       id: new FormControl('', [Validators.required]),
       restaurantMenu: new FormControl('', [Validators.required]),
     });

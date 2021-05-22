@@ -10,8 +10,8 @@ import {RestaurantService} from '../../../services/restaurant.service';
 import {Restaurant} from '../../../models/restaurant.model';
 import {CreateMenuComponent} from '../create-menu/create-menu.component';
 import {UpdateMenuComponent} from '../update-menu/update-menu.component';
-import {SuccessModalComponent} from "../../modals/success-modal/success-modal.component";
-import {ErrorModalComponent} from "../../modals/error-modal/error-modal.component";
+import {SuccessModalComponent} from '../../modals/success-modal/success-modal.component';
+import {ErrorModalComponent} from '../../modals/error-modal/error-modal.component';
 
 @Component({
   selector: 'app-menu-table',
@@ -21,7 +21,7 @@ import {ErrorModalComponent} from "../../modals/error-modal/error-modal.componen
 export class MenuTableComponent implements OnInit, AfterViewInit {
 
   public dataSource: MatTableDataSource<Menu>;
-  public columnsToDisplay = ['name', 'itemList', 'options'];
+  public columnsToDisplay = ['name', 'itemList', 'price', 'options'];
 
   public restaurant: Restaurant;
   public menus = [] as Menu[];
@@ -40,6 +40,13 @@ export class MenuTableComponent implements OnInit, AfterViewInit {
         this.menuService.getAll(restaurant.id).subscribe(
           (data) => {
             this.menus = data;
+            for (const menu of data){
+              menu.price = 0;
+              for (const item of menu.itemList){
+                menu.price += item.price;
+              }
+              menu.price = Math.round((menu.price + Number.EPSILON) * 100) / 100;
+            }
             this.dataSource = new MatTableDataSource<Menu>(this.menus);
             this.dataSource.paginator = this.paginator;
           }

@@ -1,73 +1,97 @@
 h1 {
-    display: inline-block;
-    background: linear-gradient(90deg, red, midnightblue);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: "Bahnschrift", "Times New Roman", Times, serif;
-  }
-  
-  .item-image {
-    max-width: 95%;
-    max-height: 300px;
-    background-size: cover;
-  }
-  
-  .mat-table {
-    width: 95%;
-    font-family: "Bahnschrift", "Times New Roman", Times, serif;
-  }
-  
-  .paginator-class {
-    margin-right: 2.5%;
-    margin-left: 2.5%;
-  }
-  
-  
-  .material-icons {
-    color: midnightblue;
-    cursor: pointer;
-  }
-  
-  .material-icons.add-menu {
-    display: inline-block;
-    color: midnightblue;
-    font-size: 30px;
-    vertical-align: middle;
-    padding-bottom: 10px;
-    cursor: pointer;
-  }
-  
-  .mat-cell {
-    font-size: 20px;
-  }
-  
-  .image-part {
-    float: left;
-    width: 40%;
-  }
-  
-  .details-part {
-    float: left;
-    width: 60%;
-  }
-  
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  .content{
-    background-image: url("../../../../assets/img/background.jpg");
-    background-color: rgb(156, 216, 237);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    z-index: -1;
-  }
-  
-  
+  display: inline-block;
+  background: linear-gradient(90deg, red, midnightblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Bahnschrift", "Times New Roman", Times, serif;
+}
+
+.item-image {
+  max-width: 95%;
+  max-height: 300px;
+  background-size: cover;
+}
+
+.mat-table {
+  width: 95%;
+  font-family: "Bahnschrift", "Times New Roman", Times, serif;
+}
+
+.paginator-class {
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+
+
+.material-icons {
+  color: midnightblue;
+  cursor: pointer;
+}
+
+.material-icons.add-menu {
+  display: inline-block;
+  color: midnightblue;
+  font-size: 30px;
+  vertical-align: middle;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.mat-cell {
+  font-size: 20px;
+}
+
+.image-part {
+  float: left;
+}
+
+.minimal-column{
+  max-width: 200px;
+  text-align: center;
+  padding-right: 25px;
+}
+
+.minimal-column-for-date{
+  max-width: 70px;
+  text-align: center;
+  padding-right: 25px;
+}
+
+.minimal-column-for-items{
+  min-width: 250px;
+  text-align: center;
+  padding-right: 25px;
+}
+
+.details-part {
+  height: 170px;
+  padding-top: 86px;
+  padding-left: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content {
+  background-image: url("../../../../assets/img/background.jpg");
+  background-color: rgb(156, 216, 237);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+}
+
+table {
+  background-color: rgba(255,255,255,0.4);
+}
+
+mat-paginator, th{
+  background-color: rgba(255,255,255,1);
+}
