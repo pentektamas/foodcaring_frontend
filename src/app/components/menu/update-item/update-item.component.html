@@ -16,16 +16,18 @@
             <input matInput required placeholder="Price" type="number" formControlName="price">
         </mat-form-field>
 
-        
+
         <div class="form-group">
-            <label  class="col-sm-3 control-label">Photo</label>
+            <label  class="col-sm-3 control-label">Image of product    </label>
             <input type="file" class="custom-file-input form-control button-file" name="files" id="files" multiple
-                (change)="detectFiles($event)" accept="image/x-png,image/jpeg"> 
+                (change)="detectFiles($event)" accept="image/x-png,image/jpeg" style="display:none;">
+          <label class="button" for="files">Upload image</label>
+          <br><br>
         </div>
         <div class="images-preview" >
             <div class="row ">
                     <div class="card col-md-4 " >
-                         <img [src]="imageSrc" class="card-img-top" > 
+                         <img [src]="imageSrc" class="card-img-top" >
                     </div>
             </div>
         </div>
@@ -34,7 +36,7 @@
             <button  type="submit" class="modal-button" mat-button >Update Item</button>
             <button class="modal-button" mat-button mat-dialog-close>Close</button>
           </div>
-          
+
     </form>
 
   <br>
