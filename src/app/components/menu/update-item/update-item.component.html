@@ -13,7 +13,7 @@
 
         <mat-form-field class="modal-input" appearance="legacy">
             <mat-label>Price</mat-label>
-            <input matInput required placeholder="Price" type="number" formControlName="price">
+            <input matInput required placeholder="Price" type="number" formControlName="price" min="0">
         </mat-form-field>
 
 
@@ -33,7 +33,7 @@
         </div>
 
         <div mat-dialog-actions align="center">
-            <button  type="submit" class="modal-button" mat-button >Update Item</button>
+            <button  type="submit" class="modal-button" mat-button>Update Item</button>
             <button class="modal-button" mat-button mat-dialog-close>Close</button>
           </div>
 
