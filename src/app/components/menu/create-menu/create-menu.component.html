@@ -1,4 +1,6 @@
+<div align="center">
 <div class="modal-title"> Please fill in the following fields in order to add a Menu:</div>
+</div>
 <div class="modal-content">
   <mat-form-field class="modal-input" appearance="legacy">
     <mat-label>Name</mat-label>
@@ -36,7 +38,7 @@
   </mat-form-field>
 
   <div mat-dialog-actions align="center">
-    <button class="modal-button" *ngIf="menuValidator.isValid()" mat-button (click)="addMenu()">Add Menu</button>
+    <button class="modal-button" *ngIf="menuValidator.isValid() && this.selectedItems.size > 0" mat-button (click)="addMenu()">Add Menu</button>
     <button class="modal-button" mat-button mat-dialog-close>Close</button>
   </div>
   <br>

@@ -1,0 +1,23 @@
+<div class="full-modal">
+  <div class="generals-title">
+    <img class='logo' src="../../../assets/img/logo-removebg-preview.png"><br><br>
+    Food Caring Application
+    <br><br>
+    <div class="myprofile-title">- My profile -</div>
+    <br>
+  </div>
+  <hr>
+  <div *ngIf="currentUser" class="myprofile">
+
+    <br><br>
+    <mat-button class="material-icons account-circle">account_circle</mat-button>
+    <div class="modal-content modal">
+      <b>Name: </b>{{currentUser.firstName}} {{currentUser.lastName}} <br>
+      <b>Location: </b>{{currentUser.location}} <br>
+      <b>Phone number: </b>{{currentUser.phoneNumber}} <br>
+      <b>Username: </b>{{currentUser.username}} <br>
+      <b>Role: </b>{{currentUser.role}}
+    </div>
+  </div>
+</div>
+

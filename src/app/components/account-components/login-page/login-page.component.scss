@@ -33,3 +33,25 @@
 .full-width {
   width: 300px;
 }
+
+.mat-toolbar {
+  background-color: midnightblue;
+  height: auto;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
+h1 {
+  display: inline-block;
+  background: linear-gradient(90deg, red, midnightblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Bahnschrift", "Times New Roman", Times, serif;
+}
+
+.top-text {
+  width: 100% !important;
+}

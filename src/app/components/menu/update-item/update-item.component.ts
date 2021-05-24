@@ -18,17 +18,18 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class UpdateItemComponent implements OnInit {
   public updateForm: FormGroup;
-  public imageSrc: string;
-
+  public imageSrc: String;
   constructor(@Inject(MAT_DIALOG_DATA) public item: Item, public dialog: MatDialog,private formBuilder: FormBuilder,public itemService: ItemService) {
     this.updateForm = new FormGroup({
       id:new FormControl(''),
-      name: new FormControl(''),
-      description: new FormControl(''),
-      price: new FormControl(''),
+      name: new FormControl(item.name),
+      description: new FormControl(item.description),
+      price: new FormControl(item.price),
       image: this.formBuilder.array([]),
   });
+    this.imageSrc=item.image;
    }
+
 
   ngOnInit(): void {
 
@@ -36,7 +37,7 @@ export class UpdateItemComponent implements OnInit {
 
 
   public updateItem(value){
-      
+
     let product:Item={
       id:this.item.id,
       name:value.name,
@@ -45,11 +46,15 @@ export class UpdateItemComponent implements OnInit {
       image:this.imageSrc
     }
 
+    if (product.price < 0){
+      this.dialog.open(ErrorModalComponent, {data: `The price of the item should be positive!`});
+      return;
+    }
 
     this.itemService.update(product).subscribe(
       () => {
         this.dialog.closeAll();
-        this.dialog.open(SuccessModalComponent, {data: `The item was created!`});
+        this.dialog.open(SuccessModalComponent, {data: `The item was updated!`});
       }
       , () => {
         this.dialog.open(ErrorModalComponent, {data: `The item could not be created!`});
@@ -66,5 +71,6 @@ export class UpdateItemComponent implements OnInit {
     this.imageSrc = e.target.result;
   };
 }
+
 
 }

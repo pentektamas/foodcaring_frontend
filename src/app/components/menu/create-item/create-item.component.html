@@ -1,4 +1,5 @@
-<div class="modal-title"> Please fill in the following fields in order to add an item:</div>
+<div align="center">
+<div class="modal-title" >Please fill in the following fields in order to add an item:</div></div>
 <div class="modal-content">
     <form  [formGroup]="addForm" (ngSubmit)="addItem(addForm.value)">
         <mat-form-field class="modal-input" appearance="legacy">
@@ -13,14 +14,15 @@
 
         <mat-form-field class="modal-input" appearance="legacy">
             <mat-label>Price</mat-label>
-            <input matInput required placeholder="Price" type="number" formControlName="price">
+            <input matInput required placeholder="Price" type="number" formControlName="price" min="0">
         </mat-form-field>
 
 
         <div class="form-group">
-            <label  class="col-sm-3 control-label">Photo</label>
-            <input type="file" class="custom-file-input form-control button-file" name="files" id="files" multiple
-                (change)="detectFiles($event)" accept="image/x-png,image/jpeg">
+            <label  class="col-sm-3 control-label">Image of product    </label>
+          <input type="file" class="custom-file-input form-control button-file" name="files" id="files" multiple
+                 (change)="detectFiles($event)" accept="image/x-png,image/jpeg" style="display:none;">
+          <label class="button" for="files">Upload image</label>
         </div>
         <div class="images-preview" *ngIf="imageSrc">
             <div class="row ">

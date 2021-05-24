@@ -48,3 +48,11 @@ h1 {
   position: fixed;
   z-index: -1;
 }
+
+table {
+  background-color: rgba(255,255,255,0.4);
+}
+
+mat-paginator, th {
+  background-color: rgba(255, 255, 255, 1);
+}
