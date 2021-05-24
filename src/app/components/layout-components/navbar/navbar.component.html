@@ -37,7 +37,7 @@
 
 <mat-button class="material-icons account-button" [matMenuTriggerFor]="menu">account_circle</mat-button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>
+  <button mat-menu-item (click)="openProfile()">
     <mat-icon>person</mat-icon>
     <span>My Profile</span>
   </button>
